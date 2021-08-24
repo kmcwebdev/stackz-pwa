@@ -8,7 +8,6 @@ import {
 import { BackTop } from 'antd';
 import classnames from 'classnames';
 import { Fragment, useState } from 'react';
-import { useWindowSize } from 'src/utils/use-window-size';
 import AccountDesktop from './Account-desktop';
 import AccountMobile from './Account-mobile';
 
@@ -19,8 +18,6 @@ const navigation = [
 
 const Layout: React.FC = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const { width } = useWindowSize();
 
   return (
     <div className='relative flex h-screen overflow-hidden bg-white'>

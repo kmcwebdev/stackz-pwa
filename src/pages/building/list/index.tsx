@@ -1,16 +1,21 @@
 import { Card } from 'antd';
 import { Fragment } from 'react';
+import { useWindowSize } from 'src/utils/use-window-size';
 
 const List: React.FC = () => {
+  const { width } = useWindowSize();
+
+  const hover = width > 768;
+
   return (
     <Fragment>
       <Card
         className='shadow-sm'
-        hoverable
+        hoverable={hover}
         cover={
           <div className='relative'>
             <div className='absolute bottom-10 right-1'>
-              <div className='bg-red-500 w-40'>a</div>
+              <div className='w-40 bg-red-500'>a</div>
             </div>
             <img
               alt='example'
@@ -27,7 +32,7 @@ const List: React.FC = () => {
       </Card>
       <Card
         className='shadow-sm'
-        hoverable
+        hoverable={hover}
         cover={
           <img
             alt='example'
@@ -43,7 +48,7 @@ const List: React.FC = () => {
       </Card>
       <Card
         className='shadow-sm'
-        hoverable
+        hoverable={hover}
         cover={
           <img
             alt='example'
@@ -59,7 +64,7 @@ const List: React.FC = () => {
       </Card>
       <Card
         className='shadow-sm'
-        hoverable
+        hoverable={hover}
         cover={
           <img
             alt='example'
@@ -75,7 +80,7 @@ const List: React.FC = () => {
       </Card>
       <Card
         className='shadow-sm'
-        hoverable
+        hoverable={hover}
         cover={
           <img
             alt='example'
