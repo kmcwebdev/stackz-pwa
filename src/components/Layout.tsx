@@ -14,7 +14,7 @@ import AccountMobile from './Account-mobile';
 
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: false },
-  { name: 'Office', href: '#', icon: OfficeBuildingIcon, current: true },
+  { name: 'Building', href: '#', icon: OfficeBuildingIcon, current: true },
 ];
 
 const Layout: React.FC = ({ children }) => {
@@ -188,11 +188,11 @@ const Layout: React.FC = ({ children }) => {
           <div className='sticky top-0 z-10 px-4 py-4 bg-white border-b border-gray-200 sm:px-6 lg:px-8'>
             <div className='min-w-0'>
               <h1 className='text-lg font-medium leading-6 text-gray-900 sm:truncate'>
-                Picadilly Star Building
+                Building list
               </h1>
             </div>
           </div>
-          <div className='m-2 space-y-96 md:m-10'>{children}</div>
+          <div className='m-2 md:m-10'>{children}</div>
         </main>
         <BackTop target={() => document.getElementById('my-main')!} />
       </div>

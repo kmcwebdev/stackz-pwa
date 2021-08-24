@@ -5,14 +5,14 @@ import ProtectedRoute from 'src/components/ProtectedRoute';
 import Result from 'src/components/Result';
 
 const Dashboard = lazy(() => import('./Dashboard'));
-const Office = lazy(() => import('./office'));
+const Building = lazy(() => import('./building'));
 
 const Routes: React.FC = () => {
   return (
     <Suspense fallback={<LazyLoad fullHeight />}>
       <Switch>
         <ProtectedRoute path='/dashboard' component={Dashboard} />
-        <ProtectedRoute path='/office' component={Office} />
+        <ProtectedRoute path='/building' component={Building} />
         <ProtectedRoute
           path='/not-found'
           component={() => (
