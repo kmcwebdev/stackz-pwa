@@ -8,9 +8,14 @@
       "type": "image/x-icon"
     },
     {
-      "src": "kmc-savills-300x146.webp",
-      "type": "image/webp",
-      "sizes": "300x146"
+      "src": "kmc-savills-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "kmc-savills-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",

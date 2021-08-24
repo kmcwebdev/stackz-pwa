@@ -789,6 +789,9 @@ svg{
 .transform{
 	transform: var(--tw-transform);
 }
+.resize{
+	resize: both;
+}
 .flex-col{
 	flex-direction: column;
 }
