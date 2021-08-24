@@ -8,10 +8,15 @@ const List: React.FC = () => {
         className='shadow-sm'
         hoverable
         cover={
-          <img
-            alt='example'
-            src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
-          />
+          <div className='relative'>
+            <div className='absolute bottom-10 right-1'>
+              <div className='bg-red-500 w-40'>a</div>
+            </div>
+            <img
+              alt='example'
+              src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
+            />
+          </div>
         }
       >
         <Card.Meta
