@@ -1,9 +1,11 @@
 import { Card } from 'antd';
 import { Fragment } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useWindowSize } from 'src/utils/use-window-size';
 
 const List: React.FC = () => {
   const { width } = useWindowSize();
+  const { push } = useHistory();
 
   const hover = width > 768;
 
@@ -24,6 +26,7 @@ const List: React.FC = () => {
             />
           </div>
         }
+        onClick={() => push('/dashboard')}
       >
         <Card.Meta
           title='Picadilly Star Building'
