@@ -20,5 +20,35 @@
   svg {
     @apply align-baseline;
   }
+
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 6px;
+  }
+
+  .right-card1 {
+    width: 70%;
+  }
+  .right-card2 {
+    width: 85%;
+  }
+  .right-card3 {
+    width: 100%;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(229, 231, 235, 1);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 1);
+    border-radius: 30px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 1);
+  }
   /*! purgecss end ignore */
 }
