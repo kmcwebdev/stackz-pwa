@@ -162,10 +162,10 @@ const Dashboard: React.FC = () => {
         <div className='flex-1 px-2 text-xs font-semibold'> Tenant</div>
       </div>
 
-      {floorData.map((floor) => (
-        <div className='relative flex h-20 m-2 space-x-1 md:space-x-2'>
+      {floorData.map((floor, i) => (
+        <div key={i} className='relative flex h-20 m-2 space-x-1 md:space-x-2'>
           {/* Floor Number */}
-          <div className='w-16 md:w-20 h-full'>
+          <div className='w-16 h-full md:w-20'>
             <div className='flex flex-col items-center justify-center h-full bg-gray-200 border-2 border-gray-100 rounded-md'>
               <span className='text-xl font-semibold uppercase'>
                 {floor.floorNo}

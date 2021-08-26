@@ -60,6 +60,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
         {/* FLOOR TENANT = 1 */}
         {data.map((tenant, i) => (
           <div
+            key={i}
             className={`
               ${tenantCardWidth}
               ${data.length === 2 && i === 1 && 'hidden md:block'}
@@ -68,7 +69,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
               `}
           >
             <div className='w-full overflow-ellipsis'>
-              <p className='mb-1 font-semibold capitalize text-xs md:text-md truncate'>
+              <p className='mb-1 text-xs font-semibold capitalize truncate md:text-md'>
                 {tenant.name}
               </p>
               <p className='text-xs capitalize truncate'>{tenant.address}</p>
