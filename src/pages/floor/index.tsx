@@ -51,14 +51,17 @@ const Index: React.FC = () => {
         {siderContent === 'Description' && 'Insert description here...'}
       </SiderDialog>
 
-      <div className='sticky top-0 z-10 px-2 py-4 bg-white border-b border-gray-200 sm:px-6 lg:px-8'>
+      <div
+        className='sticky top-0 z-10 px-2 py-4 bg-white border-b border-gray-200 sm:px-6 lg:px-8'
+        style={{ zIndex: 51 }}
+      >
         <div className='min-w-0 flex flex-col-reverse md:flex-row items-end justify-between md:items-center gap-2'>
           <h1 className='hidden md:block text-lg font-medium leading-6 text-gray-900 sm:truncate'>
             Office
           </h1>
 
           <div className='flex flex-col md:hidden w-full justify-center'>
-            <Divider className='mb-2 my-0 md:hidden' />
+            <Divider className='mb-2 my-0 md:hidden w-full' />
             <Radio.Group
               options={officeOptions}
               onChange={officeOptionOnChanged}
