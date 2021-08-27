@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import {
   HomeIcon,
+  InformationCircleIcon,
   MenuAlt1Icon,
   OfficeBuildingIcon,
   XIcon,
@@ -12,6 +13,7 @@ import { Fragment, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import AccountDesktop from './Account-desktop';
 import AccountMobile from './Account-mobile';
+import SiderDialog from './Sider-dialog';
 
 const navigation = [
   {
@@ -30,10 +32,38 @@ const navigation = [
 
 const Layout: React.FC = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [siderOpen, setSiderOpen] = useState<boolean>(false);
+  const [siderContent, setSiderContent] = useState<
+    'Filter' | 'Chart' | 'Description'
+  >();
   const { pathname } = useLocation();
+
+  const handleViewFilter = () => {
+    setSiderOpen(true);
+    setSiderContent('Filter');
+  };
+
+  const handleViewCharts = () => {
+    setSiderOpen(true);
+    setSiderContent('Chart');
+  };
+
+  const handleViewDesc = () => {
+    setSiderOpen(true);
+    setSiderContent('Description');
+  };
 
   return (
     <div className='relative flex h-screen overflow-hidden bg-white'>
+      <SiderDialog
+        open={siderOpen}
+        setOpen={setSiderOpen}
+        title={siderContent!}
+      >
+        {siderContent === 'Filter' && 'Insert filter fields here...'}
+        {siderContent === 'Chart' && 'Insert charts here...'}
+        {siderContent === 'Description' && 'Insert description here...'}
+      </SiderDialog>
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog
           as='div'
@@ -211,25 +241,30 @@ const Layout: React.FC = ({ children }) => {
                 <Input.Search
                   className='md:w-80'
                   placeholder='Search Building'
+                  enterButton
                 />
               </div>
             )}
 
             {(pathname === '/buildings/1/floors' ||
               pathname === '/buildings/2/floors') && (
-              <div className='min-w-0 flex justify-center md:justify-between items-center gap-x-4'>
+              <div className='min-w-0 flex justify-end md:justify-between items-center gap-x-4'>
                 <h1 className='hidden md:block text-lg font-medium leading-6 text-gray-900 sm:truncate'>
-                  Floors
+                  Office
                 </h1>
-                <div className='flex gap-x-4 items-center flex-1 md:flex-initial'>
-                  <Input.Search
-                    className='md:w-80'
-                    placeholder='Search Floor'
+                <div className='flex gap-x-4 items-center'>
+                  <AdjustmentsIcon
+                    className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
+                    onClick={handleViewFilter}
                   />
-                  <div className='flex items-center gap-x-2'>
-                    <AdjustmentsIcon className='h-6 text-gray-500' />
-                    <ChartBarIcon className='h-6 text-gray-500' />
-                  </div>
+                  <ChartBarIcon
+                    className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
+                    onClick={handleViewCharts}
+                  />
+                  <InformationCircleIcon
+                    className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
+                    onClick={handleViewDesc}
+                  />
                 </div>
               </div>
             )}

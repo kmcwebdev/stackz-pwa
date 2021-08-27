@@ -568,6 +568,16 @@ video {
 	--tw-ring-offset-shadow: 0 0 #0000;
 	--tw-ring-shadow: 0 0 #0000;
 	--tw-shadow: 0 0 #0000;
+	--tw-blur: var(--tw-empty,/*!*/ /*!*/);
+	--tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+	--tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+	--tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+	--tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+	--tw-invert: var(--tw-empty,/*!*/ /*!*/);
+	--tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+	--tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+	--tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+	--tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 /* Write your own custom base styles here */
@@ -674,6 +684,14 @@ svg{
 .mx-3{
 	margin-left: 0.75rem;
 	margin-right: 0.75rem;
+}
+.my-4{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+.my-2{
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 .mt-6{
 	margin-top: 1.5rem;
@@ -853,6 +871,9 @@ svg{
 .resize{
 	resize: both;
 }
+.grid-cols-4{
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 .flex-col{
 	flex-direction: column;
 }
@@ -865,6 +886,9 @@ svg{
 .items-center{
 	align-items: center;
 }
+.justify-end{
+	justify-content: flex-end;
+}
 .justify-center{
 	justify-content: center;
 }
@@ -873,6 +897,9 @@ svg{
 }
 .gap-6{
 	gap: 1.5rem;
+}
+.gap-4{
+	gap: 1rem;
 }
 .gap-x-4{
 	column-gap: 1rem;
@@ -889,11 +916,6 @@ svg{
 	--tw-space-y-reverse: 0;
 	margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-}
-.space-x-2 > :not([hidden]) ~ :not([hidden]){
-	--tw-space-x-reverse: 0;
-	margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-	margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .space-x-1 > :not([hidden]) ~ :not([hidden]){
 	--tw-space-x-reverse: 0;
@@ -1065,6 +1087,9 @@ svg{
 .pl-0{
 	padding-left: 0px;
 }
+.pl-2{
+	padding-left: 0.5rem;
+}
 .text-left{
 	text-align: left;
 }
@@ -1171,6 +1196,9 @@ svg{
 .ring-opacity-5{
 	--tw-ring-opacity: 0.05;
 }
+.filter{
+	filter: var(--tw-filter);
+}
 .transition{
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1240,6 +1268,11 @@ svg{
 	color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
 
+.hover\:text-blue-600:hover{
+	--tw-text-opacity: 1;
+	color: rgba(37, 99, 235, var(--tw-text-opacity));
+}
+
 .hover\:text-gray-500:hover{
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
@@ -1292,6 +1325,10 @@ svg{
 
 	.sm\:grid-cols-2{
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.sm\:grid-cols-6{
+		grid-template-columns: repeat(6, minmax(0, 1fr));
 	}
 
 	.sm\:truncate{
@@ -1348,12 +1385,12 @@ svg{
 		width: 5rem;
 	}
 
-	.md\:flex-initial{
-		flex: 0 1 auto;
-	}
-
 	.md\:grid-cols-3{
 		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.md\:grid-cols-7{
+		grid-template-columns: repeat(7, minmax(0, 1fr));
 	}
 
 	.md\:justify-between{
@@ -1389,8 +1426,19 @@ svg{
 		grid-template-columns: repeat(5, minmax(0, 1fr));
 	}
 
+	.lg\:grid-cols-8{
+		grid-template-columns: repeat(8, minmax(0, 1fr));
+	}
+
 	.lg\:px-8{
 		padding-left: 2rem;
 		padding-right: 2rem;
+	}
+}
+
+@media (min-width: 1280px){
+
+	.xl\:grid-cols-10{
+		grid-template-columns: repeat(10, minmax(0, 1fr));
 	}
 }
