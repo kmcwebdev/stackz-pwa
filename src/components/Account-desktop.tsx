@@ -44,43 +44,40 @@ const AccountDesktop: React.FC = () => {
           <div className='py-1'>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href='#'
+                <span
                   className={classnames('block px-4 py-2 text-sm', {
                     'bg-gray-100 text-gray-900': active,
                     'text-gray-700': !active,
                   })}
                 >
                   View profile
-                </a>
+                </span>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href='#'
+                <span
                   className={classnames('block px-4 py-2 text-sm', {
                     'bg-gray-100 text-gray-900': active,
                     'text-gray-700': !active,
                   })}
                 >
                   Settings
-                </a>
+                </span>
               )}
             </Menu.Item>
           </div>
           <div className='py-1'>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href='#'
+                <span
                   className={classnames('block px-4 py-2 text-sm', {
                     'bg-gray-100 text-gray-900': active,
                     'text-gray-700': !active,
                   })}
                 >
                   Logout
-                </a>
+                </span>
               )}
             </Menu.Item>
           </div>

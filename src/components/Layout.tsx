@@ -12,8 +12,13 @@ import AccountDesktop from './Account-desktop';
 import AccountMobile from './Account-mobile';
 
 const navigation = [
-  { name: 'Home', href: '#', icon: HomeIcon, current: false },
-  { name: 'Building', href: '#', icon: OfficeBuildingIcon, current: true },
+  { name: 'Home', href: '/dashboard', icon: HomeIcon, current: false },
+  {
+    name: 'Building',
+    href: '/building',
+    icon: OfficeBuildingIcon,
+    current: true,
+  },
 ];
 
 const Layout: React.FC = ({ children }) => {
