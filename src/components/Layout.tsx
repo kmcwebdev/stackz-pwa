@@ -8,20 +8,27 @@ import {
 import { BackTop } from 'antd';
 import classnames from 'classnames';
 import { Fragment, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import AccountDesktop from './Account-desktop';
 import AccountMobile from './Account-mobile';
 
 const navigation = [
-  { name: 'Home', href: '/dashboard', icon: HomeIcon, current: false },
+  {
+    name: 'Home',
+    href: '/dashboard',
+    icon: HomeIcon,
+    current: false,
+  },
   {
     name: 'Building',
-    href: '/building',
+    href: '/buildings',
     icon: OfficeBuildingIcon,
     current: true,
   },
 ];
 
 const Layout: React.FC = ({ children }) => {
+  const { pathname } = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -84,29 +91,31 @@ const Layout: React.FC = ({ children }) => {
                 <nav className='px-2'>
                   <div className='space-y-1'>
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classnames(
                           'group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md',
                           {
-                            'bg-gray-100 text-gray-900': item.current,
+                            'bg-gray-100 text-gray-900':
+                              item.href === `/${pathname.split('/')[1]}`,
                             'text-gray-600 hover:text-gray-900 hover:bg-gray-50':
-                              !item.current,
+                              item.href !== `/${pathname.split('/')[1]}`,
                           }
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
                         <item.icon
                           className={classnames('mr-3 flex-shrink-0 h-6 w-6', {
-                            'text-gray-500': item.current,
+                            'text-gray-500':
+                              item.href === `/${pathname.split('/')[1]}`,
                             'text-gray-400 group-hover:text-gray-500':
-                              !item.current,
+                              item.href !== `/${pathname.split('/')[1]}`,
                           })}
                           aria-hidden='true'
                         />
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </nav>
