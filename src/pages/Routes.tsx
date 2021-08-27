@@ -12,7 +12,7 @@ const Routes: React.FC = () => {
     <Suspense fallback={<LazyLoad fullHeight />}>
       <Switch>
         <ProtectedRoute path='/dashboard' component={Dashboard} />
-        <ProtectedRoute path='/building' component={Building} />
+        <ProtectedRoute path='/buildings' component={Building} />
         <ProtectedRoute
           path='/not-found'
           component={() => (
