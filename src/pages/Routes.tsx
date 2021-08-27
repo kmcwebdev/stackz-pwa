@@ -7,16 +7,18 @@ import Result from 'src/components/Result';
 const Dashboard = lazy(() => import('./Dashboard'));
 const Building = lazy(() => import('./building'));
 const Floor = lazy(() => import('./floor'));
+
 const Routes: React.FC = () => {
   return (
     <Suspense fallback={<LazyLoad fullHeight />}>
       <Switch>
         <ProtectedRoute path='/dashboard' component={Dashboard} />
-        <ProtectedRoute path='/buildings' component={Building} exact />
         <ProtectedRoute
           path='/buildings/:buildingId/floors'
           component={Floor}
         />
+        <ProtectedRoute path='/buildings' component={Building} />
+
         <ProtectedRoute
           path='/not-found'
           component={() => (

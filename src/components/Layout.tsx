@@ -176,29 +176,31 @@ const Layout: React.FC = ({ children }) => {
             <nav className='px-3 mt-6'>
               <div className='space-y-1'>
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className={classnames(
                       'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
                       {
-                        'bg-gray-200 text-gray-900': item.current,
+                        'bg-gray-200 text-gray-900':
+                          item.href === `/${pathname.split('/')[1]}`,
                         'text-gray-700 hover:text-gray-900 hover:bg-gray-50':
-                          !item.current,
+                          item.href !== `/${pathname.split('/')[1]}`,
                       }
                     )}
                     aria-current={item.current ? 'page' : undefined}
                   >
                     <item.icon
                       className={classnames('mr-3 flex-shrink-0 h-6 w-6', {
-                        'text-gray-500': item.current,
+                        'text-gray-500':
+                          item.href === `/${pathname.split('/')[1]}`,
                         'text-gray-400 group-hover:text-gray-500':
-                          !item.current,
+                          item.href !== `/${pathname.split('/')[1]}`,
                       })}
                       aria-hidden='true'
                     />
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </nav>
@@ -234,8 +236,8 @@ const Layout: React.FC = ({ children }) => {
               </h1>
             )}
             {pathname === '/buildings' && (
-              <div className='min-w-0 flex justify-center md:justify-between'>
-                <h1 className='hidden md:block text-lg font-medium leading-6 text-gray-900 sm:truncate'>
+              <div className='flex justify-center min-w-0 md:justify-between'>
+                <h1 className='hidden text-lg font-medium leading-6 text-gray-900 md:block sm:truncate'>
                   Building list
                 </h1>
                 <Input.Search
@@ -248,21 +250,21 @@ const Layout: React.FC = ({ children }) => {
 
             {(pathname === '/buildings/1/floors' ||
               pathname === '/buildings/2/floors') && (
-              <div className='min-w-0 flex justify-end md:justify-between items-center gap-x-4'>
-                <h1 className='hidden md:block text-lg font-medium leading-6 text-gray-900 sm:truncate'>
+              <div className='flex items-center justify-end min-w-0 md:justify-between gap-x-4'>
+                <h1 className='hidden text-lg font-medium leading-6 text-gray-900 md:block sm:truncate'>
                   Office
                 </h1>
-                <div className='flex gap-x-4 items-center'>
+                <div className='flex items-center gap-x-4'>
                   <AdjustmentsIcon
-                    className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
+                    className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
                     onClick={handleViewFilter}
                   />
                   <ChartBarIcon
-                    className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
+                    className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
                     onClick={handleViewCharts}
                   />
                   <InformationCircleIcon
-                    className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
+                    className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
                     onClick={handleViewDesc}
                   />
                 </div>
