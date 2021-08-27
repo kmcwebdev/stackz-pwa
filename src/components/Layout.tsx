@@ -1,19 +1,16 @@
 import { Dialog, Transition } from '@headlessui/react';
 import {
   HomeIcon,
-  InformationCircleIcon,
   MenuAlt1Icon,
   OfficeBuildingIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import { AdjustmentsIcon, ChartBarIcon } from '@heroicons/react/solid';
-import { BackTop, Input } from 'antd';
+import { BackTop } from 'antd';
 import classnames from 'classnames';
 import { Fragment, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import AccountDesktop from './Account-desktop';
 import AccountMobile from './Account-mobile';
-import SiderDialog from './Sider-dialog';
 
 const navigation = [
   {
@@ -32,38 +29,11 @@ const navigation = [
 
 const Layout: React.FC = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [siderOpen, setSiderOpen] = useState<boolean>(false);
-  const [siderContent, setSiderContent] = useState<
-    'Filter' | 'Chart' | 'Description'
-  >();
+
   const { pathname } = useLocation();
-
-  const handleViewFilter = () => {
-    setSiderOpen(true);
-    setSiderContent('Filter');
-  };
-
-  const handleViewCharts = () => {
-    setSiderOpen(true);
-    setSiderContent('Chart');
-  };
-
-  const handleViewDesc = () => {
-    setSiderOpen(true);
-    setSiderContent('Description');
-  };
 
   return (
     <div className='relative flex h-screen overflow-hidden bg-white'>
-      <SiderDialog
-        open={siderOpen}
-        setOpen={setSiderOpen}
-        title={siderContent!}
-      >
-        {siderContent === 'Filter' && 'Insert filter fields here...'}
-        {siderContent === 'Chart' && 'Insert charts here...'}
-        {siderContent === 'Description' && 'Insert description here...'}
-      </SiderDialog>
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog
           as='div'
@@ -226,50 +196,7 @@ const Layout: React.FC = ({ children }) => {
           id='my-main'
           className='relative z-0 flex-1 overflow-y-auto focus:outline-none'
         >
-          {/* Page title */}
-          <div className='sticky top-0 z-10 p-4 bg-white border-b border-gray-200 sm:px-6 lg:px-8'>
-            {pathname === '/dashboard' && (
-              <h1 className='text-xl font-medium leading-6 text-gray-900'>
-                Dashboard
-              </h1>
-            )}
-            {pathname === '/buildings' && (
-              <div className='min-w-0 flex justify-center md:justify-between'>
-                <h1 className='hidden md:block text-lg font-medium leading-6 text-gray-900 sm:truncate'>
-                  Building list
-                </h1>
-                <Input.Search
-                  className='md:w-80'
-                  placeholder='Search Building'
-                  enterButton
-                />
-              </div>
-            )}
-
-            {(pathname === '/buildings/1/floors' ||
-              pathname === '/buildings/2/floors') && (
-              <div className='min-w-0 flex justify-end md:justify-between items-center gap-x-4'>
-                <h1 className='hidden md:block text-lg font-medium leading-6 text-gray-900 sm:truncate'>
-                  Office
-                </h1>
-                <div className='flex gap-x-4 items-center'>
-                  <AdjustmentsIcon
-                    className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
-                    onClick={handleViewFilter}
-                  />
-                  <ChartBarIcon
-                    className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
-                    onClick={handleViewCharts}
-                  />
-                  <InformationCircleIcon
-                    className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
-                    onClick={handleViewDesc}
-                  />
-                </div>
-              </div>
-            )}
-          </div>
-          <div className='m-2 md:m-10'>{children}</div>
+          {children}
         </main>
         <BackTop target={() => document.getElementById('my-main')!} />
       </div>
