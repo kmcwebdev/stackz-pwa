@@ -29,7 +29,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
       'flex-1 md:w-4/12': data.length === 3,
       'flex-1 md:w-3/12': data.length >= 4,
     },
-    'h-full p-2 text-white bg-blue-400 border-2 border-gray-100 rounded-md'
+    'h-full p-2 text-white from-blue-500 to-blue-400 bg-gradient-to-r border-2 border-white rounded-md'
   );
 
   const hiddenTenants = classNames(
@@ -81,7 +81,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
 
       <div className={`${hiddenTenants} ${data.length <= 4 && 'md:hidden'}`}>
         <div className='absolute z-50 w-full h-full transition-all border-2 border-gray-100 cursor-pointer hover:bg-gray-400 hover:bg-opacity-50'></div>
-        <div className='absolute z-30 grid h-full font-semibold text-white bg-blue-600 border-2 border-gray-100 rounded-md right-card1 place-items-center'>
+        <div className='absolute z-30 grid h-full font-semibold text-white from-blue-500 to-blue-400 bg-gradient-to-r border-2 border-white rounded-md right-card1 place-items-center'>
           +
           {data.length > 4
             ? windowWidth > 768
@@ -89,8 +89,8 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
               : data.length - 1
             : data.length - 1}
         </div>
-        <div className='absolute z-20 grid h-full font-semibold text-white bg-red-400 border-2 border-gray-100 rounded-md right-card2 place-items-center'></div>
-        <div className='absolute grid h-full font-semibold text-white bg-blue-600 border-2 border-gray-100 rounded-md right-card3 place-items-center '></div>
+        <div className='absolute z-20 grid h-full font-semibold text-white from-red-500 to-red-400 bg-gradient-to-r border-2 border-white rounded-md right-card2 place-items-center'></div>
+        <div className='absolute grid h-full font-semibold text-white from-blue-500 to-blue-400 bg-gradient-to-r border-2 border-white rounded-md right-card3 place-items-center '></div>
       </div>
     </>
   );
