@@ -1,56 +1,55 @@
+import {
+  LocationMarkerIcon,
+  OfficeBuildingIcon,
+} from '@heroicons/react/outline';
 import { Card } from 'antd';
 import { Fragment } from 'react';
 import { useHistory } from 'react-router-dom';
+import { buildingData } from 'src/assets/data';
 import { useWindowSize } from 'src/utils/use-window-size';
 
 const List: React.FC = () => {
   const { width } = useWindowSize();
   const { push } = useHistory();
-
   const hover = width > 768;
 
   return (
     <Fragment>
-      <Card
-        className='shadow-sm'
-        hoverable={hover}
-        cover={
-          <div className='relative'>
-            <div className='absolute top-10 right-1'>
-              <div className='w-40 bg-red-500'>asdasda</div>
+      {buildingData.map((building, i) => (
+        <Card
+          key={i}
+          bodyStyle={{ paddingLeft: '10px', paddingRight: '10px' }}
+          className='shadow-md border-gray-200 from-gray-200 to-gray-50 bg-gradient-to-b border text-white'
+          hoverable={hover}
+          cover={
+            <div className='p-1 w-full relative'>
+              <img
+                className='h-52 w-full object-cover'
+                alt={building.name}
+                src={building.image}
+              />
             </div>
-            <img
-              className='w-full h-80'
-              alt='Picadilly-start-building'
-              src='https://kmc-s3.sgp1.cdn.digitaloceanspaces.com/IMAGES/picadilly_star.jpeg'
-            />
-          </div>
-        }
-        onClick={() => push('/dashboard')}
-      >
-        <Card.Meta
-          title='Picadilly Star Building'
-          description='Picadilly Star Corporate Center
-        4th Ave corner 27th St., Bonifacio Global City, Taguig'
-        />
-      </Card>
-      <Card
-        className='shadow-sm'
-        hoverable={hover}
-        cover={
-          <img
-            className='w-full h-80'
-            alt='example'
-            src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
+          }
+          onClick={() => push(`buildings/${building.id}/floors`)}
+        >
+          <Card.Meta
+            title={
+              <div className='flex gap-x-2 items-center text-gray-800'>
+                <OfficeBuildingIcon className='h-4' />
+                <div>{building.name}</div>
+              </div>
+            }
+            description={
+              <div className='flex gap-x-2 text-gray-500'>
+                <div className='h-4 mt-1'>
+                  <LocationMarkerIcon className='h-4' />
+                </div>
+                <div>{building.address}</div>
+              </div>
+            }
           />
-        }
-      >
-        <Card.Meta
-          title='Picadilly Star Building'
-          description='Picadilly Star Corporate Center
-        4th Ave corner 27th St., Bonifacio Global City, Taguig'
-        />
-      </Card>
+        </Card>
+      ))}
     </Fragment>
   );
 };

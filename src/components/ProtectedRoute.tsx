@@ -4,6 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 interface ProtectedRouteProps {
   path: string;
   component: React.ComponentType<any>;
+  exact?: boolean;
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({

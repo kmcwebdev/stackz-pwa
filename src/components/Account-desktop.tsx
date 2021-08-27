@@ -1,5 +1,5 @@
 import { Menu, Transition } from '@headlessui/react';
-import { SelectorIcon } from '@heroicons/react/outline';
+import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
 import classnames from 'classnames';
 import { Fragment } from 'react';
 
@@ -24,7 +24,7 @@ const AccountDesktop: React.FC = () => {
                 </span>
               </span>
             </span>
-            <SelectorIcon
+            <ChevronDoubleDownIcon
               className='flex-shrink-0 w-5 h-5 text-gray-400 group-hover:text-gray-500'
               aria-hidden='true'
             />

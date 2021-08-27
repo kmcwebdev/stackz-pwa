@@ -5,7 +5,8 @@ import {
   OfficeBuildingIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import { BackTop } from 'antd';
+import { AdjustmentsIcon, ChartBarIcon } from '@heroicons/react/solid';
+import { BackTop, Input } from 'antd';
 import classnames from 'classnames';
 import { Fragment, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
@@ -28,8 +29,8 @@ const navigation = [
 ];
 
 const Layout: React.FC = ({ children }) => {
-  const { pathname } = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { pathname } = useLocation();
 
   return (
     <div className='relative flex h-screen overflow-hidden bg-white'>
@@ -196,12 +197,42 @@ const Layout: React.FC = ({ children }) => {
           className='relative z-0 flex-1 overflow-y-auto focus:outline-none'
         >
           {/* Page title */}
-          <div className='sticky top-0 z-10 px-4 py-4 bg-white border-b border-gray-200 sm:px-6 lg:px-8'>
-            <div className='min-w-0'>
-              <h1 className='text-lg font-medium leading-6 text-gray-900 sm:truncate'>
-                Building list
+          <div className='sticky top-0 z-10 p-4 bg-white border-b border-gray-200 sm:px-6 lg:px-8'>
+            {pathname === '/dashboard' && (
+              <h1 className='text-xl font-medium leading-6 text-gray-900'>
+                Dashboard
               </h1>
-            </div>
+            )}
+            {pathname === '/buildings' && (
+              <div className='min-w-0 flex justify-center md:justify-between'>
+                <h1 className='hidden md:block text-lg font-medium leading-6 text-gray-900 sm:truncate'>
+                  Building list
+                </h1>
+                <Input.Search
+                  className='md:w-80'
+                  placeholder='Search Building'
+                />
+              </div>
+            )}
+
+            {(pathname === '/buildings/1/floors' ||
+              pathname === '/buildings/2/floors') && (
+              <div className='min-w-0 flex justify-center md:justify-between items-center gap-x-4'>
+                <h1 className='hidden md:block text-lg font-medium leading-6 text-gray-900 sm:truncate'>
+                  Floors
+                </h1>
+                <div className='flex gap-x-4 items-center flex-1 md:flex-initial'>
+                  <Input.Search
+                    className='md:w-80'
+                    placeholder='Search Floor'
+                  />
+                  <div className='flex items-center gap-x-2'>
+                    <AdjustmentsIcon className='h-6 text-gray-500' />
+                    <ChartBarIcon className='h-6 text-gray-500' />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
           <div className='m-2 md:m-10'>{children}</div>
         </main>
