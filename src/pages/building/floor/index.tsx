@@ -55,13 +55,13 @@ const Index: React.FC = () => {
         className='sticky top-0 z-10 px-2 py-4 bg-white border-b border-gray-200 sm:px-6 lg:px-8'
         style={{ zIndex: 51 }}
       >
-        <div className='min-w-0 flex flex-col-reverse md:flex-row items-end justify-between md:items-center gap-2'>
-          <h1 className='hidden md:block text-lg font-medium leading-6 text-gray-900 sm:truncate'>
+        <div className='flex flex-col-reverse items-end justify-between min-w-0 gap-2 md:flex-row md:items-center'>
+          <h1 className='hidden text-lg font-medium leading-6 text-gray-900 md:block sm:truncate'>
             Office
           </h1>
 
-          <div className='flex flex-col md:hidden w-full justify-center'>
-            <Divider className='mb-2 my-0 md:hidden w-full' />
+          <div className='flex flex-col justify-center w-full md:hidden'>
+            <Divider className='w-full my-0 mb-2 md:hidden' />
             <Radio.Group
               options={officeOptions}
               onChange={officeOptionOnChanged}
@@ -71,17 +71,17 @@ const Index: React.FC = () => {
             />
           </div>
 
-          <div className='flex gap-x-4 items-center justify-end'>
+          <div className='flex items-center justify-end gap-x-4'>
             <AdjustmentsIcon
-              className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
+              className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
               onClick={handleViewFilter}
             />
             <ChartBarIcon
-              className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
+              className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
               onClick={handleViewCharts}
             />
             <InformationCircleIcon
-              className='h-6 text-gray-500 hover:text-blue-600 cursor-pointer transition-all'
+              className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
               onClick={handleViewDesc}
             />
           </div>
@@ -103,7 +103,7 @@ const Index: React.FC = () => {
 
         {selectedOption === 'Lease Expiry' && (
           <div className='w-full'>
-            <div className='grid grid-cols-4 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10 gap-4'>
+            <div className='grid grid-cols-4 gap-4 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10'>
               <Button type='default'>2020</Button>
               <Button type='default'>2021</Button>
               <Button type='default'>2022</Button>
@@ -116,13 +116,13 @@ const Index: React.FC = () => {
         )}
 
         <div className='relative flex md:space-x-2'>
-          <div className='w-20 text-xs pl-2 font-semibold'> Floor</div>
+          <div className='w-20 pl-2 text-xs font-semibold'> Floor</div>
           <div className='flex-1 text-xs font-semibold'> Tenant</div>
         </div>
         {floorData.map((floor, i) => (
           <div
             key={i}
-            className='relative flex my-2 h-20 space-x-1 md:space-x-2'
+            className='relative flex h-20 my-2 space-x-1 md:space-x-2'
           >
             <div className='w-16 h-full md:w-20'>
               <div className='flex flex-col items-center justify-center h-full bg-gray-200 border-2 border-white rounded-md'>

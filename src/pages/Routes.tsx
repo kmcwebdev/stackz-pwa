@@ -6,7 +6,7 @@ import Result from 'src/components/Result';
 
 const Dashboard = lazy(() => import('./Dashboard'));
 const Building = lazy(() => import('./building'));
-const Floor = lazy(() => import('./floor'));
+const Floor = lazy(() => import('./building/floor'));
 
 const Routes: React.FC = () => {
   return (
@@ -18,7 +18,6 @@ const Routes: React.FC = () => {
           component={Floor}
         />
         <ProtectedRoute path='/buildings' component={Building} />
-
         <ProtectedRoute
           path='/not-found'
           component={() => (
