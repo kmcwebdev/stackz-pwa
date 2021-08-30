@@ -7,7 +7,7 @@ import { Button, Divider, Radio, RadioChangeEvent } from 'antd';
 import React, { useState } from 'react';
 import { floorData } from 'src/assets/data';
 import SiderDialog from 'src/components/Sider-dialog';
-import Tenants from 'src/components/Tenants';
+import Tenants from 'src/pages/building/tenants';
 
 const Index: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('Lease Expiry');
@@ -60,8 +60,8 @@ const Index: React.FC = () => {
             Office
           </h1>
 
-          <div className='flex flex-col justify-center w-full md:hidden'>
-            <Divider className='w-full my-0 mb-2 md:hidden' />
+          <div className='flex flex-col items-center justify-center w-full md:hidden'>
+            <Divider className='w-full my-0 mb-4 md:hidden' />
             <Radio.Group
               options={officeOptions}
               onChange={officeOptionOnChanged}
@@ -88,7 +88,7 @@ const Index: React.FC = () => {
         </div>
       </div>
 
-      <div className='m-2 md:m-10'>
+      <div className='mx-2 mt-4 mb-2'>
         <div className='hidden md:block'>
           <Radio.Group
             options={officeOptions}
@@ -97,10 +97,8 @@ const Index: React.FC = () => {
             optionType='button'
             buttonStyle='solid'
           />
-
           <Divider className='my-4' />
         </div>
-
         {selectedOption === 'Lease Expiry' && (
           <div className='w-full'>
             <div className='grid grid-cols-4 gap-4 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10'>
@@ -114,7 +112,6 @@ const Index: React.FC = () => {
             <Divider className='my-4' />
           </div>
         )}
-
         <div className='relative flex md:space-x-2'>
           <div className='w-20 pl-2 text-xs font-semibold'> Floor</div>
           <div className='flex-1 text-xs font-semibold'> Tenant</div>
@@ -131,7 +128,6 @@ const Index: React.FC = () => {
                 </span>
               </div>
             </div>
-
             <div className='relative flex flex-1 w-20 h-full'>
               <Tenants data={floor.tenants} />
             </div>

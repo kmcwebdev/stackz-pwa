@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
-import { Dispatch, Fragment, SetStateAction, useEffect } from 'react';
+import { Dispatch, Fragment, SetStateAction } from 'react';
 
 interface SiderDialogProps {
   open: boolean;
@@ -14,10 +14,6 @@ const SiderDialog: React.FC<SiderDialogProps> = ({
   title,
   children,
 }) => {
-  useEffect(() => {
-    return () => console.log(true);
-  }, []);
-
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -39,7 +35,7 @@ const SiderDialog: React.FC<SiderDialogProps> = ({
             >
               <div className='w-screen max-w-lg'>
                 <div className='flex flex-col h-full py-6 overflow-y-scroll bg-white shadow-xl'>
-                  <div className='w-full px-4 sm:px-6 pb-4 border-b'>
+                  <div className='w-full px-4 pb-4 border-b sm:px-6'>
                     <div className='flex items-start justify-between'>
                       <Dialog.Title className='text-lg font-medium text-gray-900'>
                         {title}
