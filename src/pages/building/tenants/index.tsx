@@ -67,6 +67,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
               ${data.length === 3 && i >= 1 && 'hidden md:block'}
               ${data.length >= 4 && hideTenant(i)}
               `}
+            onClick={() => console.log(tenant)}
           >
             <div className='w-full overflow-ellipsis'>
               <p className='mb-1 text-xs font-semibold capitalize truncate md:text-md'>
@@ -81,7 +82,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
 
       <div className={`${hiddenTenants} ${data.length <= 4 && 'md:hidden'}`}>
         <div className='absolute z-50 w-full h-full transition-all border-2 border-gray-100 cursor-pointer hover:bg-gray-400 hover:bg-opacity-50'></div>
-        <div className='absolute z-30 grid h-full font-semibold text-white from-blue-500 to-blue-400 bg-gradient-to-r border-2 border-white rounded-md right-card1 place-items-center'>
+        <div className='absolute z-30 grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card1 place-items-center'>
           +
           {data.length > 4
             ? windowWidth > 768
@@ -89,8 +90,8 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
               : data.length - 1
             : data.length - 1}
         </div>
-        <div className='absolute z-20 grid h-full font-semibold text-white from-red-500 to-red-400 bg-gradient-to-r border-2 border-white rounded-md right-card2 place-items-center'></div>
-        <div className='absolute grid h-full font-semibold text-white from-blue-500 to-blue-400 bg-gradient-to-r border-2 border-white rounded-md right-card3 place-items-center '></div>
+        <div className='absolute z-20 grid h-full font-semibold text-white border-2 border-white rounded-md from-red-500 to-red-400 bg-gradient-to-r right-card2 place-items-center'></div>
+        <div className='absolute grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card3 place-items-center '></div>
       </div>
     </>
   );

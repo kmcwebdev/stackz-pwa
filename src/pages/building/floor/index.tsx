@@ -122,7 +122,10 @@ const Index: React.FC = () => {
             className='relative flex h-20 my-2 space-x-1 md:space-x-2'
           >
             <div className='w-16 h-full md:w-20'>
-              <div className='flex flex-col items-center justify-center h-full bg-gray-200 border-2 border-white rounded-md'>
+              <div
+                className='flex flex-col items-center justify-center h-full bg-gray-200 border-2 border-white rounded-md'
+                onClick={() => console.log(floor.floorNo)}
+              >
                 <span className='text-xl font-semibold uppercase'>
                   {floor.floorNo}
                 </span>
