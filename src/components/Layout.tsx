@@ -105,6 +105,7 @@ const Layout: React.FC = ({ children }) => {
                           }
                         )}
                         aria-current={item.current ? 'page' : undefined}
+                        onClick={() => setSidebarOpen(false)}
                       >
                         <item.icon
                           className={classnames('mr-3 flex-shrink-0 h-6 w-6', {
@@ -114,6 +115,7 @@ const Layout: React.FC = ({ children }) => {
                               item.href !== `/${pathname.split('/')[1]}`,
                           })}
                           aria-hidden='true'
+                          onClick={() => setSidebarOpen(false)}
                         />
                         {item.name}
                       </Link>
