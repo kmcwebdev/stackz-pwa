@@ -34,10 +34,10 @@ const SiderDialog: React.FC<SiderDialogProps> = ({
               leaveTo='translate-x-full'
             >
               <div className='w-screen max-w-lg'>
-                <div className='flex flex-col h-full py-6 overflow-y-scroll bg-white shadow-xl'>
-                  <div className='w-full px-4 pb-4 border-b sm:px-6'>
+                <div className='flex flex-col h-full overflow-y-scroll bg-white shadow-xl'>
+                  <div className='w-full px-4 py-6 border-b sm:px-6 sticky top-0 bg-white z-50'>
                     <div className='flex items-start justify-between'>
-                      <Dialog.Title className='text-lg font-medium text-gray-900'>
+                      <Dialog.Title className='text-xl font-bold text-gray-900'>
                         {title}
                       </Dialog.Title>
                       <div className='flex items-center ml-3 h-7'>
@@ -52,7 +52,7 @@ const SiderDialog: React.FC<SiderDialogProps> = ({
                       </div>
                     </div>
                   </div>
-                  <div className='relative flex-1 px-4 mt-6 sm:px-6'>
+                  <div className='relative flex-1 px-4 my-6 sm:px-6'>
                     {/* Replace with your content */}
                     {children}
                     {/* /End replace */}

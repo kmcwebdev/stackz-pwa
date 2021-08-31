@@ -5,14 +5,15 @@ import {
 } from '@heroicons/react/solid';
 import { Button, Divider, Radio, RadioChangeEvent } from 'antd';
 import React, { useState } from 'react';
-import { floorData } from 'src/assets/data';
+import { FloorData, floorData } from 'src/assets/data';
 import SiderDialog from 'src/components/Sider-dialog';
 import Tenants from 'src/pages/building/tenants';
+import UnitInfo from './UnitInfo';
 
 const Index: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('Lease Expiry');
   const [siderContent, setSiderContent] = useState<
-    'Filter' | 'Chart' | 'Description'
+    'Filter' | 'Chart' | 'Description' | 'Unit Information'
   >();
   const [siderOpen, setSiderOpen] = useState<boolean>(false);
   const officeOptions = [
@@ -20,23 +21,24 @@ const Index: React.FC = () => {
     { label: 'Tenant Classification', value: 'Tenant Classification' },
   ];
 
+  const [activeUnit, setActiveUnit] = useState<FloorData>();
+
   const officeOptionOnChanged = (e: RadioChangeEvent) => {
     setSelectedOption(e.target.value);
   };
 
-  const handleViewFilter = () => {
+  const handleSider = (
+    mode: 'Filter' | 'Chart' | 'Description' | 'Unit Information',
+    floorNo?: number
+  ) => {
+    setSiderContent(mode);
+    if (floorNo) {
+      const active = floorData.find((flr) => flr.floorNo === floorNo);
+      if (active) {
+        setActiveUnit(active);
+      }
+    }
     setSiderOpen(true);
-    setSiderContent('Filter');
-  };
-
-  const handleViewCharts = () => {
-    setSiderOpen(true);
-    setSiderContent('Chart');
-  };
-
-  const handleViewDesc = () => {
-    setSiderOpen(true);
-    setSiderContent('Description');
   };
 
   return (
@@ -49,6 +51,7 @@ const Index: React.FC = () => {
         {siderContent === 'Filter' && 'Insert filter fields here...'}
         {siderContent === 'Chart' && 'Insert charts here...'}
         {siderContent === 'Description' && 'Insert description here...'}
+        {siderContent === 'Unit Information' && <UnitInfo data={activeUnit!} />}
       </SiderDialog>
 
       <div
@@ -74,15 +77,15 @@ const Index: React.FC = () => {
           <div className='flex items-center justify-end gap-x-4'>
             <AdjustmentsIcon
               className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
-              onClick={handleViewFilter}
+              onClick={() => handleSider('Filter')}
             />
             <ChartBarIcon
               className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
-              onClick={handleViewCharts}
+              onClick={() => handleSider('Chart')}
             />
             <InformationCircleIcon
               className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
-              onClick={handleViewDesc}
+              onClick={() => handleSider('Description')}
             />
           </div>
         </div>
@@ -123,8 +126,8 @@ const Index: React.FC = () => {
           >
             <div className='w-16 h-full md:w-20'>
               <div
-                className='flex flex-col items-center justify-center h-full bg-gray-200 border-2 border-white rounded-md'
-                onClick={() => console.log(floor.floorNo)}
+                className='flex flex-col items-center justify-center h-full bg-gray-200 border-2 border-white rounded-md cursor-pointer hover:bg-gray-300 transition-all'
+                onClick={() => handleSider('Unit Information', floor.floorNo)}
               >
                 <span className='text-xl font-semibold uppercase'>
                   {floor.floorNo}

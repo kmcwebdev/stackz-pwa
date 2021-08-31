@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
+import SiderDialog from 'src/components/Sider-dialog';
 import { useWindowSize } from 'src/utils/use-window-size';
 
 export interface Tenant {
@@ -14,6 +15,7 @@ interface TenantsProps {
 
 const Tenants: React.FC<TenantsProps> = ({ data }) => {
   const windowWidth = useWindowSize().width;
+  const [siderOpen, setSiderOpen] = React.useState<boolean>(false);
 
   const containerWidth = classNames(
     {
@@ -54,8 +56,41 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
     return result;
   };
 
+  const handleViewTenants = (tenant: Tenant) => {
+    setSiderOpen(true);
+    console.log(tenant);
+  };
+
+  const handleViewHiddenTenants = (tenants: Tenant[]) => {
+    let hiddenTenants: Tenant[] = [];
+    if (tenants) {
+      tenants.map((item, i) => {
+        if (windowWidth > 768) {
+          if (i >= 4) {
+            hiddenTenants.push(item);
+          }
+        } else {
+          if (i >= 1) {
+            hiddenTenants.push(item);
+          }
+        }
+        return true;
+      });
+    }
+
+    console.log(hiddenTenants);
+  };
+
   return (
     <>
+      <SiderDialog
+        open={siderOpen}
+        setOpen={setSiderOpen}
+        title='Floor Tenants'
+      >
+        Floor Tenants
+      </SiderDialog>
+
       <div className={containerWidth}>
         {/* FLOOR TENANT = 1 */}
         {data.map((tenant, i) => (
@@ -67,7 +102,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
               ${data.length === 3 && i >= 1 && 'hidden md:block'}
               ${data.length >= 4 && hideTenant(i)}
               `}
-            onClick={() => console.log(tenant)}
+            onClick={() => handleViewTenants(tenant)}
           >
             <div className='w-full overflow-ellipsis'>
               <p className='mb-1 text-xs font-semibold capitalize truncate md:text-md'>
@@ -80,7 +115,10 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
         ))}
       </div>
 
-      <div className={`${hiddenTenants} ${data.length <= 4 && 'md:hidden'}`}>
+      <div
+        className={`${hiddenTenants} ${data.length <= 4 && 'md:hidden'}`}
+        onClick={() => handleViewHiddenTenants(data)}
+      >
         <div className='absolute z-50 w-full h-full transition-all border-2 border-gray-100 cursor-pointer hover:bg-gray-400 hover:bg-opacity-50'></div>
         <div className='absolute z-30 grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card1 place-items-center'>
           +

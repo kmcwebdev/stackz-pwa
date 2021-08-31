@@ -1,3 +1,5 @@
+import { Tenant } from 'src/pages/building/tenants';
+
 export const buildingData = [
   {
     id: 1,
@@ -22,6 +24,11 @@ export const buildingData = [
       'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
 ];
+
+export interface FloorData {
+  floorNo: number;
+  tenants: Tenant[];
+}
 
 export const floorData = [
   {
