@@ -1,19 +1,24 @@
 import {
   AdjustmentsIcon,
   ChartBarIcon,
-  InformationCircleIcon,
+  PhotographIcon,
 } from '@heroicons/react/solid';
 import { Button, Divider, Radio, RadioChangeEvent } from 'antd';
 import React, { useState } from 'react';
 import { FloorData, floorData } from 'src/assets/data';
 import SiderDialog from 'src/components/Sider-dialog';
 import Tenants from 'src/pages/building/tenants';
+import BuildingInfo from './BuildingInfo';
+import Gallery from './Gallery';
 import UnitInfo from './UnitInfo';
 
 const Index: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('Lease Expiry');
   const [siderContent, setSiderContent] = useState<
-    'Filter' | 'Chart' | 'Description' | 'Unit Information'
+    | 'Filter'
+    | 'Building Information'
+    | 'Unit Information'
+    | 'Gallery & Virtual Tour'
   >();
   const [siderOpen, setSiderOpen] = useState<boolean>(false);
   const officeOptions = [
@@ -28,7 +33,11 @@ const Index: React.FC = () => {
   };
 
   const handleSider = (
-    mode: 'Filter' | 'Chart' | 'Description' | 'Unit Information',
+    mode:
+      | 'Filter'
+      | 'Building Information'
+      | 'Unit Information'
+      | 'Gallery & Virtual Tour',
     floorNo?: number
   ) => {
     setSiderContent(mode);
@@ -49,8 +58,8 @@ const Index: React.FC = () => {
         title={siderContent!}
       >
         {siderContent === 'Filter' && 'Insert filter fields here...'}
-        {siderContent === 'Chart' && 'Insert charts here...'}
-        {siderContent === 'Description' && 'Insert description here...'}
+        {siderContent === 'Building Information' && <BuildingInfo />}
+        {siderContent === 'Gallery & Virtual Tour' && <Gallery />}
         {siderContent === 'Unit Information' && <UnitInfo data={activeUnit!} />}
       </SiderDialog>
 
@@ -81,11 +90,12 @@ const Index: React.FC = () => {
             />
             <ChartBarIcon
               className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
-              onClick={() => handleSider('Chart')}
+              onClick={() => handleSider('Building Information')}
             />
-            <InformationCircleIcon
+
+            <PhotographIcon
               className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
-              onClick={() => handleSider('Description')}
+              onClick={() => handleSider('Gallery & Virtual Tour')}
             />
           </div>
         </div>
