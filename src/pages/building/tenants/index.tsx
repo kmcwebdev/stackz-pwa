@@ -2,6 +2,8 @@ import classNames from 'classnames';
 import React from 'react';
 import SiderDialog from 'src/components/Sider-dialog';
 import { useWindowSize } from 'src/utils/use-window-size';
+import HiddenTenants from './HiddenTenants';
+import TenantInfo from './TenantInfo';
 
 export interface Tenant {
   name: string;
@@ -16,6 +18,10 @@ interface TenantsProps {
 const Tenants: React.FC<TenantsProps> = ({ data }) => {
   const windowWidth = useWindowSize().width;
   const [siderOpen, setSiderOpen] = React.useState<boolean>(false);
+  const [selectedTenant, setSelectedTenant] = React.useState<Tenant>();
+  const [selectedHiddenTenant, setSelectedHiddenTenant] =
+    React.useState<Tenant[]>();
+  const [siderMode, setSiderMode] = React.useState<'Tenant Info' | 'Tenants'>();
 
   const containerWidth = classNames(
     {
@@ -57,8 +63,9 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
   };
 
   const handleViewTenants = (tenant: Tenant) => {
+    setSelectedTenant(tenant);
+    setSiderMode('Tenant Info');
     setSiderOpen(true);
-    console.log(tenant);
   };
 
   const handleViewHiddenTenants = (tenants: Tenant[]) => {
@@ -77,18 +84,19 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
         return true;
       });
     }
-
-    console.log(hiddenTenants);
+    setSelectedHiddenTenant(hiddenTenants);
+    setSiderMode('Tenants');
+    setSiderOpen(true);
   };
 
   return (
     <>
-      <SiderDialog
-        open={siderOpen}
-        setOpen={setSiderOpen}
-        title='Floor Tenants'
-      >
-        Floor Tenants
+      <SiderDialog open={siderOpen} setOpen={setSiderOpen} title={siderMode!}>
+        {siderMode === 'Tenant Info' ? (
+          <TenantInfo data={selectedTenant!} />
+        ) : (
+          <HiddenTenants data={selectedHiddenTenant!} />
+        )}
       </SiderDialog>
 
       <div className={containerWidth}>
