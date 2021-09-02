@@ -88,16 +88,14 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
         <Text className='font-semibold text-lg'>Contacts:</Text>
       </div>
       <div className='my-4 border-l-2 border-blue-300 pl-4'>
-        <Text className='font-semibold'>Matthew Brimo</Text>
+        <Text className='font-semibold'>John Doe</Text>
         <div className='flex items-center gap-x-2'>
           <PhoneIcon className='h-3 w-3' />
-          <Text className='font-semibold text-sm'>(+63) 917 565 9896</Text>
+          <Text className='font-semibold text-sm'>(+63) 9195675658</Text>
         </div>
         <div className='flex items-center gap-x-2'>
           <MailIcon className='h-3 w-3' />
-          <Text className='font-semibold text-sm'>
-            matthew.brimo@kmcmaggroup.com
-          </Text>
+          <Text className='font-semibold text-sm'>john.doe@mail.com</Text>
         </div>
       </div>
 

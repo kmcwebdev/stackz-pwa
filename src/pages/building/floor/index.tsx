@@ -182,7 +182,11 @@ const Index: React.FC = () => {
                 onClick={() => handleSider('Unit Information', floor.floorNo)}
               >
                 <span className='text-xl font-semibold uppercase'>
-                  {floor.floorNo}
+                  {floor.floorNo === 1
+                    ? 'GF'
+                    : floor.floorNo === 0
+                    ? ''
+                    : floor.floorNo}
                 </span>
               </div>
             </div>
