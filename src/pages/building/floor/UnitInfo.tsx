@@ -148,7 +148,8 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
               showHiddenTenantButton && touchedTenant === i
                 ? 'w-20 px-4'
                 : 'w-0 p-0'
-            } absolute right-0 h-full flex flex-col items-center justify-center text-center bg-red-400 overflow-hidden transition-all duration-75`}
+            } absolute right-0 h-full flex flex-col items-center justify-center text-center bg-red-400 overflow-hidden transition-all`}
+            style={{ transitionDuration: '.06s' }}
           >
             <ChatAltIcon className='h-5 text-white' />
             <Text className='text-white text-xs'>Submit feedback</Text>
