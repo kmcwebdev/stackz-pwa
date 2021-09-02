@@ -72,11 +72,11 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
   }
 
   const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 150) {
+    if (touchStart - touchEnd > 85) {
       setShowHiddenTenantButton(true);
     }
 
-    if (touchStart - touchEnd < -150) {
+    if (touchStart - touchEnd < -85) {
       setShowHiddenTenantButton(false);
     }
   };
