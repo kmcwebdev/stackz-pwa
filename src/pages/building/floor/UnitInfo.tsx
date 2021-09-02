@@ -8,7 +8,7 @@ import {
   UserIcon,
 } from '@heroicons/react/solid';
 import { Divider, Dropdown, Menu } from 'antd';
-import React from 'react';
+import React, { TouchEvent } from 'react';
 import { FloorData } from 'src/assets/data';
 import { Text } from 'src/components/Text';
 
@@ -62,16 +62,16 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
     setShowUnitDetails(true);
   };
 
-  const handleTouchStart = (e: any) => {
+  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
 
-  function handleTouchMove(e: any, i: number) {
+  function handleTouchMove(e: TouchEvent<HTMLDivElement>, i: number) {
     setTouchedTenant(i);
     setTouchEnd(e.targetTouches[0].clientX);
   }
 
-  function handleTouchEnd() {
+  const handleTouchEnd = () => {
     if (touchStart - touchEnd > 150) {
       setShowHiddenTenantButton(true);
     }
@@ -79,7 +79,7 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
     if (touchStart - touchEnd < -150) {
       setShowHiddenTenantButton(false);
     }
-  }
+  };
 
   return (
     <div>
@@ -124,6 +124,7 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
 
       {data.tenants.map((tenant, i) => (
         <div
+          role='button'
           key={i}
           className={`relative border-b border-gray-100 py-2 px-2 flex items-center justify-between transition-all
           ${activeTenant === i && 'bg-blue-50'}
@@ -134,7 +135,7 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
             'bg-gray-100'
           }
           `}
-          onTouchStart={handleTouchStart}
+          onTouchStart={(e) => handleTouchStart(e)}
           onTouchEnd={handleTouchEnd}
           onTouchMove={(e) => handleTouchMove(e, i)}
         >
