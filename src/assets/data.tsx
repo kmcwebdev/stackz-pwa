@@ -30,155 +30,229 @@ export interface FloorData {
   tenants: Tenant[];
 }
 
-export const floorData = [
+export const floorData: FloorData[] = [
   {
-    floorNo: 1,
+    floorNo: 26,
     tenants: [
       {
-        name: 'Tenant 1',
-        address: 'Address 1',
-        amount: 'Amount 1',
+        name: 'TXVIA INC.',
+        area: 1182,
+        leaseExpiryDate: null,
+        verifiedOn: null,
       },
     ],
   },
   {
-    floorNo: 2,
+    floorNo: 25,
     tenants: [
       {
-        name: 'Tenant 1',
-        address: 'Address 1',
-        amount: 'Amount 1',
-      },
-      {
-        name: 'Tenant 2',
-        address: 'Address 2',
-        amount: 'Amount 2',
+        name: 'KMC SOLUTIONS',
+        area: 1054,
+        leaseExpiryDate: 'August 2030',
+        verifiedOn: null,
       },
     ],
   },
   {
-    floorNo: 3,
+    floorNo: 24,
     tenants: [
       {
-        name: 'Tenant 1',
-        address: 'Address 1',
-        amount: 'Amount 1',
-      },
-      {
-        name: 'Tenant 2',
-        address: 'Address 2',
-        amount: 'Amount 2',
-      },
-      {
-        name: 'Tenant 3',
-        address: 'Address 3',
-        amount: 'Amount 3',
+        name: 'KMC SOLUTIONS',
+        area: 1054,
+        leaseExpiryDate: 'August 2030',
+        verifiedOn: null,
       },
     ],
   },
   {
-    floorNo: 4,
+    floorNo: 20,
     tenants: [
       {
-        name: 'Tenant 1',
-        address: 'Address 1',
-        amount: 'Amount 1',
-      },
-      {
-        name: 'Tenant 2',
-        address: 'Address 2',
-        amount: 'Amount 2',
-      },
-      {
-        name: 'Tenant 3',
-        address: 'Address 3',
-        amount: 'Amount 3',
-      },
-      {
-        name: 'Tenant 4',
-        address: 'Address 4',
-        amount: 'Amount 4',
+        name: 'KMC SOLUTIONS',
+        area: 1054,
+        leaseExpiryDate: 'August 2030',
+        verifiedOn: null,
       },
     ],
   },
   {
-    floorNo: 5,
+    floorNo: 19,
     tenants: [
       {
-        name: 'Tenant 1',
-        address: 'Address 1',
-        amount: 'Amount 1',
+        name: 'YINYI PHILIPPINES INVESTMENT HOLDING GROUP, INC.',
+        area: 513,
+        leaseExpiryDate: null,
+        verifiedOn: null,
       },
       {
-        name: 'Tenant 2',
-        address: 'Address 2',
-        amount: 'Amount 2',
-      },
-      {
-        name: 'Tenant 3',
-        address: 'Address 3',
-        amount: 'Amount 3',
-      },
-      {
-        name: 'Tenant 4',
-        address: 'Address 4',
-        amount: 'Amount 4',
-      },
-      {
-        name: 'Tenant 5',
-        address: 'Address 5',
-        amount: 'Amount 5',
+        name: 'VACANT',
+        area: 541,
+        leaseExpiryDate: null,
+        verifiedOn: '24 days ago',
       },
     ],
   },
-
+  {
+    floorNo: 17,
+    tenants: [
+      {
+        name: 'MICROSOURCING PHILIPPINES, INC.',
+        area: 1054,
+        leaseExpiryDate: null,
+        verifiedOn: null,
+      },
+    ],
+  },
+  {
+    floorNo: 15,
+    tenants: [
+      {
+        name: 'VACANT',
+        area: 241,
+        leaseExpiryDate: null,
+        verifiedOn: '24 days ago',
+      },
+      {
+        name: 'BBCT LAW',
+        area: 260,
+        leaseExpiryDate: null,
+        verifiedOn: null,
+      },
+      {
+        name: 'VACANT',
+        area: 260,
+        leaseExpiryDate: null,
+        verifiedOn: '24 days ago',
+      },
+      {
+        name: 'VACANT',
+        area: 281,
+        leaseExpiryDate: null,
+        verifiedOn: '24 days ago',
+      },
+      {
+        name: 'GOODYEAR PHILIPPINES INC',
+        area: 1054,
+        leaseExpiryDate: null,
+        verifiedOn: null,
+      },
+    ],
+  },
+  {
+    floorNo: 14,
+    tenants: [
+      {
+        name: 'GLOBAL SAVANT BUILDING TECHNOLOGIES CORPORATION',
+        area: 200,
+        leaseExpiryDate: null,
+        verifiedOn: null,
+      },
+      {
+        name: 'VACANT',
+        area: 241,
+        leaseExpiryDate: null,
+        verifiedOn: '24 days ago',
+      },
+    ],
+  },
+  {
+    floorNo: 12,
+    tenants: [
+      {
+        name: 'VACANT',
+        area: 260,
+        leaseExpiryDate: null,
+        verifiedOn: '24 days ago',
+      },
+    ],
+  },
+  {
+    floorNo: 11,
+    tenants: [
+      {
+        name: 'AGGREKO ENERGY RENTAL SOLUTIONS',
+        area: 200,
+        leaseExpiryDate: null,
+        verifiedOn: null,
+      },
+      {
+        name: 'VACANT',
+        area: 267,
+        leaseExpiryDate: null,
+        verifiedOn: '24 days ago',
+      },
+    ],
+  },
+  {
+    floorNo: 10,
+    tenants: [
+      {
+        name: 'VACANT',
+        area: 241,
+        leaseExpiryDate: null,
+        verifiedOn: '24 days ago',
+      },
+      {
+        name: 'VACANT',
+        area: 267,
+        leaseExpiryDate: null,
+        verifiedOn: '24 days ago',
+      },
+      {
+        name: 'INTERTOUCH BUSINESS SOLUTIONS',
+        area: 1054,
+        leaseExpiryDate: null,
+        verifiedOn: null,
+      },
+    ],
+  },
   {
     floorNo: 9,
     tenants: [
       {
-        name: 'Tenant 1',
-        address: 'Address 1',
-        amount: 'Amount 1',
+        name: 'PH GLOBAL KIDS SMART FUTURE TECHNOLOGY INC.',
+        area: 0,
+        leaseExpiryDate: null,
+        verifiedOn: null,
+      },
+    ],
+  },
+  {
+    floorNo: 8,
+    tenants: [
+      {
+        name: 'WPP MARKETING COMMUNICATIONS INC.',
+        area: 1054,
+        leaseExpiryDate: null,
+        verifiedOn: null,
+      },
+    ],
+  },
+  {
+    floorNo: 1,
+    tenants: [
+      {
+        name: 'VACANT',
+        area: 111,
+        leaseExpiryDate: null,
+        verifiedOn: '24 days ago',
+      },
+    ],
+  },
+  {
+    floorNo: 0,
+    tenants: [
+      {
+        name: 'ASIA UNITED BANK',
+        area: 0,
+        leaseExpiryDate: null,
+        verifiedOn: null,
       },
       {
-        name: 'Tenant 2',
-        address: 'Address 2',
-        amount: 'Amount 2',
-      },
-      {
-        name: 'Tenant 3',
-        address: 'Address 3',
-        amount: 'Amount 3',
-      },
-      {
-        name: 'Tenant 4',
-        address: 'Address 4',
-        amount: 'Amount 4',
-      },
-      {
-        name: 'Tenant 5',
-        address: 'Address 5',
-        amount: 'Amount 5',
-      },
-      {
-        name: 'Tenant 6',
-        address: 'Address 6',
-        amount: 'Amount 6',
-      },
-      {
-        name: 'Tenant 7',
-        address: 'Address 7',
-        amount: 'Amount 7',
-      },
-      {
-        name: 'Tenant 8',
-        address: 'Address 8',
-        amount: 'Amount 8',
-      },
-      {
-        name: 'Tenant 9',
-        address: 'Address 9',
-        amount: 'Amount 9',
+        name: 'BDO',
+        area: 0,
+        leaseExpiryDate: null,
+        verifiedOn: null,
       },
     ],
   },

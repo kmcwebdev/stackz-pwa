@@ -7,8 +7,9 @@ import TenantInfo from './TenantInfo';
 
 export interface Tenant {
   name: string;
-  address: string;
-  amount: string;
+  area: number;
+  leaseExpiryDate?: string | null;
+  verifiedOn?: string | null;
 }
 
 interface TenantsProps {
@@ -28,7 +29,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
       'w-full': data.length === 1,
       'w-9/12 md:w-full': data.length > 1,
     },
-    'flex'
+    'block md:flex'
   );
   const tenantCardWidth = classNames(
     {
@@ -112,12 +113,21 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
               `}
             onClick={() => handleViewTenants(tenant)}
           >
-            <div className='w-full overflow-ellipsis'>
+            <div className='w-full overflow-hidden'>
               <p className='mb-1 text-xs font-semibold capitalize truncate md:text-md'>
                 {tenant.name}
               </p>
-              <p className='text-xs capitalize truncate'>{tenant.address}</p>
-              <p className='text-xs capitalize truncate'>{tenant.amount}</p>
+              <p className='text-xs capitalize truncate'>{tenant.area}</p>
+              {tenant.leaseExpiryDate && (
+                <p className='text-xs capitalize truncate'>
+                  {tenant.leaseExpiryDate}
+                </p>
+              )}
+              {tenant.verifiedOn && (
+                <p className='text-xs capitalize truncate'>
+                  {tenant.verifiedOn}
+                </p>
+              )}
             </div>
           </div>
         ))}

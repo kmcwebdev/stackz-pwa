@@ -1,3 +1,4 @@
+import ExportOutlined from '@ant-design/icons/ExportOutlined';
 import { Dialog, Transition } from '@headlessui/react';
 import {
   HomeIcon,
@@ -10,7 +11,6 @@ import classnames from 'classnames';
 import { Fragment, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import AccountDesktop from './Account-desktop';
-import AccountMobile from './Account-mobile';
 
 const navigation = [
   {
@@ -29,7 +29,6 @@ const navigation = [
 
 const Layout: React.FC = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
   const { pathname } = useLocation();
 
   return (
@@ -88,6 +87,7 @@ const Layout: React.FC = ({ children }) => {
                   alt='kmc-savills'
                 />
               </div>
+              <AccountDesktop />
               <div className='flex-1 h-0 mt-5 overflow-y-auto'>
                 <nav className='px-2'>
                   <div className='space-y-1'>
@@ -193,7 +193,13 @@ const Layout: React.FC = ({ children }) => {
           </button>
           <div className='flex justify-between flex-1 px-4 sm:px-6 lg:px-8'>
             <div className='flex items-center'>MOBILE HEADER</div>
-            <AccountMobile />
+            {pathname.includes('buildings') && pathname.includes('floors') && (
+              <div className='h-full flex items-center'>
+                <div className='h-8 w-8 bg-blue-700 rounded-sm grid place-items-center'>
+                  <ExportOutlined className='text-lg text-white font-bold leading-4' />
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <main

@@ -12,6 +12,17 @@ import BuildingInfo from './BuildingInfo';
 import Gallery from './Gallery';
 import UnitInfo from './UnitInfo';
 
+const leastExpiryButtons: string[] = [
+  '2020',
+  '2021',
+  '2022',
+  '2023',
+  '2024',
+  '2025+',
+  'Unavbl',
+  'Available',
+];
+
 const Index: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('Lease Expiry');
   const [siderContent, setSiderContent] = useState<
@@ -50,6 +61,34 @@ const Index: React.FC = () => {
     setSiderOpen(true);
   };
 
+  const randomizeBtnBorder = (value: string): string => {
+    let border = 'border-gray-400';
+    if (value === 'Unavbl') {
+      border = 'border-red-500';
+    }
+    if (value === 'Available') {
+      border = 'border-green-500';
+    }
+
+    if (value !== 'Unavbl' && value !== 'Available') {
+      const date = new Date();
+      const year = date.getFullYear();
+      const converted = parseInt(value.replace('+', ''));
+
+      if (converted === year) {
+        border = 'border-indigo-300';
+      }
+      if (converted < year) {
+        border = 'border-gray-200';
+      }
+
+      if (converted > year) {
+        border = 'border-indigo-200';
+      }
+    }
+    return border;
+  };
+
   return (
     <div className='w-full'>
       <SiderDialog
@@ -83,7 +122,7 @@ const Index: React.FC = () => {
             />
           </div>
 
-          <div className='flex items-center justify-end gap-x-4'>
+          <div className='flex items-center justify-end gap-4'>
             <AdjustmentsIcon
               className='h-6 text-gray-500 transition-all cursor-pointer hover:text-blue-600'
               onClick={() => handleSider('Filter')}
@@ -114,13 +153,16 @@ const Index: React.FC = () => {
         </div>
         {selectedOption === 'Lease Expiry' && (
           <div className='w-full'>
-            <div className='grid grid-cols-4 gap-4 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10'>
-              <Button type='default'>2020</Button>
-              <Button type='default'>2021</Button>
-              <Button type='default'>2022</Button>
-              <Button type='default'>2023</Button>
-              <Button type='default'>2024</Button>
-              <Button type='default'>2025</Button>
+            <div className='grid grid-cols-3 gap-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10'>
+              {leastExpiryButtons.map((btn, i) => (
+                <Button
+                  key={i}
+                  type='default'
+                  className={`border-2 ${randomizeBtnBorder(btn)}`}
+                >
+                  {btn}
+                </Button>
+              ))}
             </div>
             <Divider className='my-4' />
           </div>
