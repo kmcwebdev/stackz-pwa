@@ -126,12 +126,7 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
           key={i}
           className={`relative border-b border-gray-100 py-2 px-2 flex items-center justify-between transition-all
           ${activeTenant === i && 'bg-blue-50'}
-          ${
-            touchedTenant === i &&
-            showHiddenTenantButton &&
-            tenant.name !== 'VACANT' &&
-            'bg-gray-100'
-          }
+          ${touchedTenant === i && showHiddenTenantButton && 'bg-gray-100'}
           `}
           onTouchStart={(e) => handleTouchStart(e)}
           onTouchEnd={handleTouchEnd}
@@ -171,18 +166,16 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
             </Dropdown>
           </div>
 
-          {tenant.name !== 'VACANT' && (
-            <div
-              className={`${
-                showHiddenTenantButton && touchedTenant === i
-                  ? 'w-20 px-4'
-                  : 'w-0 p-0'
-              } absolute right-0 h-full flex flex-col items-center justify-center text-center bg-red-400 overflow-hidden transition-all duration-75`}
-            >
-              <ChatAltIcon className='h-5 text-white' />
-              <Text className='text-white text-xs'>Submit feedback</Text>
-            </div>
-          )}
+          <div
+            className={`${
+              showHiddenTenantButton && touchedTenant === i
+                ? 'w-20 px-4'
+                : 'w-0 p-0'
+            } absolute right-0 h-full flex flex-col items-center justify-center text-center bg-red-400 overflow-hidden transition-all duration-75`}
+          >
+            <ChatAltIcon className='h-5 text-white' />
+            <Text className='text-white text-xs'>Submit feedback</Text>
+          </div>
         </div>
       ))}
 
