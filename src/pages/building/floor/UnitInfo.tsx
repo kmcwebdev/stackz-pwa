@@ -7,9 +7,12 @@ import {
   UserGroupIcon,
   UserIcon,
 } from '@heroicons/react/solid';
-import { Divider, Dropdown, Menu } from 'antd';
+import { Button, Divider, Dropdown, Form, Menu } from 'antd';
+import { useForm } from 'antd/lib/form/Form';
+import TextArea from 'antd/lib/input/TextArea';
 import React, { TouchEvent } from 'react';
 import { FloorData } from 'src/assets/data';
+import Modal from 'src/components/Modal';
 import { Text } from 'src/components/Text';
 import { useWindowSize } from 'src/utils/use-window-size';
 
@@ -26,13 +29,35 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
   const [touchEnd, setTouchEnd] = React.useState<number>(0);
   const [showHiddenTenantButton, setShowHiddenTenantButton] =
     React.useState<boolean>(false);
+  const [feedbackModalState, setFeedbackModalState] =
+    React.useState<boolean>(false);
+  const [activeTenantId, setActiveTenantId] = React.useState<number>();
+
+  const toggleFeedbackModal = () => {
+    setFeedbackModalState(!feedbackModalState);
+  };
+
+  const handleShowFeedbackModal = (index: number) => {
+    setActiveTenantId(index);
+    toggleFeedbackModal();
+  };
+
+  const [feedbackForm] = useForm();
+
+  const submitFeedbackForm = () => {
+    feedbackForm.validateFields().then((values) => console.log(values));
+  };
 
   const menu = (
     <Menu>
       <Menu.Item key='1'>1st menu item</Menu.Item>
       <Menu.Item key='2'>2nd menu item</Menu.Item>
       <Menu.Item key='3'>3rd menu item</Menu.Item>
-      <Menu.Item className='hidden lg:block' key='4'>
+      <Menu.Item
+        className='hidden lg:block'
+        key='4'
+        onClick={() => handleShowFeedbackModal(activeTenant!)}
+      >
         Submit Feedback
       </Menu.Item>
     </Menu>
@@ -77,7 +102,7 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
         <Text className='font-semibold'>John Doe</Text>
         <div className='flex items-center gap-x-2'>
           <PhoneIcon className='w-3 h-3' />
-          <Text className='text-sm font-semibold'>(+63) 9195675658</Text>
+          <Text className='text-sm font-semibold'>(+63)9195675658</Text>
         </div>
         <div className='flex items-center gap-x-2'>
           <MailIcon className='w-3 h-3' />
@@ -145,6 +170,7 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
                 : 'w-0 p-0'
             } absolute right-0 h-full flex flex-col items-center justify-center text-center bg-red-400 overflow-hidden transition-all`}
             style={{ transitionDuration: '.06s' }}
+            onClick={() => handleShowFeedbackModal(i)}
           >
             <ChatAltIcon className='h-5 text-white' />
             <Text className='text-xs text-white'>Submit feedback</Text>
@@ -226,6 +252,38 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
           </div>
         </>
       )}
+
+      <Modal
+        title='Submit Feedback'
+        open={feedbackModalState}
+        setOpen={setFeedbackModalState}
+      >
+        <Form
+          layout='vertical'
+          form={feedbackForm}
+          onFinish={submitFeedbackForm}
+        >
+          <Form.Item
+            name='feedback'
+            label='Feedback'
+            rules={[{ required: true, message: 'Please enter feedback!' }]}
+          >
+            <TextArea rows={8} />
+          </Form.Item>
+
+          <Divider className='my-4' />
+          <div className='flex justify-end'>
+            <div className='grid grid-cols-2 gap-2 md:w-5/12'>
+              <Button type='default' onClick={toggleFeedbackModal}>
+                Cancel
+              </Button>
+              <Button type='primary' htmlType='submit'>
+                Submit
+              </Button>
+            </div>
+          </div>
+        </Form>
+      </Modal>
     </div>
   );
 };
