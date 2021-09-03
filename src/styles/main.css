@@ -711,12 +711,6 @@ svg{
 .mt-1{
 	margin-top: 0.25rem;
 }
-.ml-3{
-	margin-left: 0.75rem;
-}
-.mt-2{
-	margin-top: 0.5rem;
-}
 .-mr-12{
 	margin-right: -3rem;
 }
@@ -728,6 +722,9 @@ svg{
 }
 .mr-3{
 	margin-right: 0.75rem;
+}
+.ml-3{
+	margin-left: 0.75rem;
 }
 .mb-4{
 	margin-bottom: 1rem;
@@ -762,9 +759,6 @@ svg{
 .h-5{
 	height: 1.25rem;
 }
-.h-8{
-	height: 2rem;
-}
 .h-screen{
 	height: 100vh;
 }
@@ -780,6 +774,9 @@ svg{
 .h-full{
 	height: 100%;
 }
+.h-8{
+	height: 2rem;
+}
 .h-7{
 	height: 1.75rem;
 }
@@ -789,14 +786,14 @@ svg{
 .h-52{
 	height: 13rem;
 }
-.h-20{
-	height: 5rem;
-}
 .h-3{
 	height: 0.75rem;
 }
 .h-4{
 	height: 1rem;
+}
+.h-20{
+	height: 5rem;
 }
 .w-full{
 	width: 100%;
@@ -806,12 +803,6 @@ svg{
 }
 .w-5{
 	width: 1.25rem;
-}
-.w-8{
-	width: 2rem;
-}
-.w-48{
-	width: 12rem;
 }
 .w-6{
 	width: 1.5rem;
@@ -828,17 +819,20 @@ svg{
 .w-0{
 	width: 0px;
 }
+.w-8{
+	width: 2rem;
+}
 .w-screen{
 	width: 100vw;
+}
+.w-3{
+	width: 0.75rem;
 }
 .w-20{
 	width: 5rem;
 }
 .w-16{
 	width: 4rem;
-}
-.w-3{
-	width: 0.75rem;
 }
 .w-9\/12{
 	width: 75%;
@@ -866,9 +860,6 @@ svg{
 }
 .origin-top{
 	transform-origin: top;
-}
-.origin-top-right{
-	transform-origin: top right;
 }
 .-translate-x-full{
 	--tw-translate-x: -100%;
@@ -1012,6 +1003,14 @@ svg{
 	--tw-border-opacity: 1;
 	border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
+.border-blue-300{
+	--tw-border-opacity: 1;
+	border-color: rgba(147, 197, 253, var(--tw-border-opacity));
+}
+.border-gray-100{
+	--tw-border-opacity: 1;
+	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+}
 .border-gray-400{
 	--tw-border-opacity: 1;
 	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
@@ -1035,14 +1034,6 @@ svg{
 .border-white{
 	--tw-border-opacity: 1;
 	border-color: rgba(255, 255, 255, var(--tw-border-opacity));
-}
-.border-blue-300{
-	--tw-border-opacity: 1;
-	border-color: rgba(147, 197, 253, var(--tw-border-opacity));
-}
-.border-gray-100{
-	--tw-border-opacity: 1;
-	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
 }
 .bg-gray-100{
 	--tw-bg-opacity: 1;
@@ -1169,11 +1160,11 @@ svg{
 .pl-0{
 	padding-left: 0px;
 }
-.pl-2{
-	padding-left: 0.5rem;
-}
 .pl-4{
 	padding-left: 1rem;
+}
+.pl-2{
+	padding-left: 0.5rem;
 }
 .text-left{
 	text-align: left;
