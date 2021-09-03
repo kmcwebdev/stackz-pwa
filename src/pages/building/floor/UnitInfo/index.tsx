@@ -38,6 +38,7 @@ const Index: React.FC<IndexProps> = ({ data }) => {
 
   const handleShowFeedbackModal = (index: number) => {
     setActiveTenantId(index);
+    console.log(activeTenantId);
     toggleFeedbackModal();
   };
 
