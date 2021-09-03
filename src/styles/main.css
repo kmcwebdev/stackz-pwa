@@ -735,6 +735,9 @@ svg{
 .mb-2{
 	margin-bottom: 0.5rem;
 }
+.mb-1{
+	margin-bottom: 0.25rem;
+}
 .-mr-1{
 	margin-right: -0.25rem;
 }
@@ -743,9 +746,6 @@ svg{
 }
 .mt-2{
 	margin-top: 0.5rem;
-}
-.mb-1{
-	margin-bottom: 0.25rem;
 }
 .block{
 	display: block;
@@ -801,11 +801,11 @@ svg{
 .h-20{
 	height: 5rem;
 }
-.h-3{
-	height: 0.75rem;
-}
 .h-4{
 	height: 1rem;
+}
+.h-3{
+	height: 0.75rem;
 }
 .min-h-screen{
 	min-height: 100vh;
@@ -846,17 +846,17 @@ svg{
 .w-16{
 	width: 4rem;
 }
-.w-3{
-	width: 0.75rem;
-}
-.w-56{
-	width: 14rem;
-}
 .w-9\/12{
 	width: 75%;
 }
 .w-3\/12{
 	width: 25%;
+}
+.w-3{
+	width: 0.75rem;
+}
+.w-56{
+	width: 14rem;
 }
 .min-w-0{
 	min-width: 0px;
@@ -1142,11 +1142,11 @@ svg{
 .p-2{
 	padding: 0.5rem;
 }
-.p-0{
-	padding: 0px;
-}
 .p-1{
 	padding: 0.25rem;
+}
+.p-0{
+	padding: 0px;
 }
 .px-3{
 	padding-left: 0.75rem;
@@ -1493,10 +1493,6 @@ svg{
 		height: 100vh;
 	}
 
-	.sm\:w-full{
-		width: 100%;
-	}
-
 	.sm\:translate-y-0{
 		--tw-translate-y: 0px;
 		transform: var(--tw-transform);
@@ -1528,12 +1524,12 @@ svg{
 		white-space: nowrap;
 	}
 
-	.sm\:p-0{
-		padding: 0px;
-	}
-
 	.sm\:p-6{
 		padding: 1.5rem;
+	}
+
+	.sm\:p-0{
+		padding: 0px;
 	}
 
 	.sm\:px-6{
@@ -1576,8 +1572,16 @@ svg{
 		height: 4rem;
 	}
 
-	.md\:w-8\/12{
-		width: 66.666667%;
+	.md\:w-4\/12{
+		width: 33.333333%;
+	}
+
+	.md\:w-6\/12{
+		width: 50%;
+	}
+
+	.md\:w-10\/12{
+		width: 83.333333%;
 	}
 
 	.md\:w-80{
@@ -1588,24 +1592,16 @@ svg{
 		width: 5rem;
 	}
 
-	.md\:w-5\/12{
-		width: 41.666667%;
-	}
-
 	.md\:w-full{
 		width: 100%;
 	}
 
-	.md\:w-6\/12{
-		width: 50%;
-	}
-
-	.md\:w-4\/12{
-		width: 33.333333%;
-	}
-
 	.md\:w-3\/12{
 		width: 25%;
+	}
+
+	.md\:w-5\/12{
+		width: 41.666667%;
 	}
 
 	.md\:grid-cols-3{

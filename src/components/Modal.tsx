@@ -1,16 +1,33 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/solid';
 import { Divider } from 'antd';
+import classNames from 'classnames';
 import React, { Fragment, SetStateAction, useRef } from 'react';
 
 interface ModalProps {
   title: string;
   open: boolean;
   setOpen: React.Dispatch<SetStateAction<boolean>>;
+  width: 'sm' | 'md' | 'lg';
 }
 
-const Modal: React.FC<ModalProps> = ({ open, setOpen, title, children }) => {
+const Modal: React.FC<ModalProps> = ({
+  open,
+  setOpen,
+  title,
+  children,
+  width,
+}) => {
   const cancelButtonRef = useRef(null);
+
+  const modalWidth = classNames(
+    {
+      'w-full md:w-4/12': width === 'sm',
+      'w-full md:w-6/12': width === 'md',
+      'w-full md:w-10/12': width === 'lg',
+    },
+    'inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:p-6'
+  );
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -50,7 +67,7 @@ const Modal: React.FC<ModalProps> = ({ open, setOpen, title, children }) => {
             leaveFrom='opacity-100 translate-y-0 sm:scale-100'
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
           >
-            <div className='inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle w-full md:w-8/12 sm:w-full sm:p-6'>
+            <div className={modalWidth}>
               <div>
                 <div className='flex items-center justify-between'>
                   <Dialog.Title
