@@ -19,7 +19,7 @@ const leastExpiryButtons: string[] = [
   '2023',
   '2024',
   '2025+',
-  'Unavbl',
+  'Unavailable',
   'Available',
 ];
 
@@ -63,14 +63,14 @@ const Index: React.FC = () => {
 
   const randomizeBtnBorder = (value: string): string => {
     let border = 'border-gray-400';
-    if (value === 'Unavbl') {
+    if (value === 'Unavailable') {
       border = 'border-red-500';
     }
     if (value === 'Available') {
       border = 'border-green-500';
     }
 
-    if (value !== 'Unavbl' && value !== 'Available') {
+    if (value !== 'Unavailable' && value !== 'Available') {
       const date = new Date();
       const year = date.getFullYear();
       const converted = parseInt(value.replace('+', ''));
@@ -178,7 +178,7 @@ const Index: React.FC = () => {
           >
             <div className='w-16 h-full md:w-20'>
               <div
-                className='flex flex-col items-center justify-center h-full bg-gray-200 border-2 border-white rounded-md cursor-pointer hover:bg-gray-300 transition-all'
+                className='flex flex-col items-center justify-center h-full transition-all bg-gray-200 border-2 border-white rounded-md cursor-pointer hover:bg-gray-300'
                 onClick={() => handleSider('Unit Information', floor.floorNo)}
               >
                 <span className='text-xl font-semibold uppercase'>

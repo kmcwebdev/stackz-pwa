@@ -27,10 +27,12 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
 
   const menu = (
     <Menu>
-      <Menu.Item>1st menu item</Menu.Item>
-      <Menu.Item>2nd menu item</Menu.Item>
-      <Menu.Item>3rd menu item</Menu.Item>
-      <Menu.Item className='hidden lg:block'>Submit Feedback</Menu.Item>
+      <Menu.Item key='1'>1st menu item</Menu.Item>
+      <Menu.Item key='2'>2nd menu item</Menu.Item>
+      <Menu.Item key='3'>3rd menu item</Menu.Item>
+      <Menu.Item className='hidden lg:block' key='4'>
+        Submit Feedback
+      </Menu.Item>
     </Menu>
   );
 
@@ -61,40 +63,26 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
   return (
     <div>
       <div className='flex items-center gap-x-2'>
-        <UserIcon className='h-5 w-5' />
-        <Text className='font-semibold text-lg'>Contacts:</Text>
+        <UserIcon className='w-5 h-5' />
+        <Text className='text-lg font-semibold'>Contacts:</Text>
       </div>
-      <div className='my-4 border-l-2 border-blue-300 pl-4'>
+      <div className='pl-4 my-4 border-l-2 border-blue-300'>
         <Text className='font-semibold'>John Doe</Text>
         <div className='flex items-center gap-x-2'>
-          <PhoneIcon className='h-3 w-3' />
-          <Text className='font-semibold text-sm'>(+63) 9195675658</Text>
+          <PhoneIcon className='w-3 h-3' />
+          <Text className='text-sm font-semibold'>(+63) 9195675658</Text>
         </div>
         <div className='flex items-center gap-x-2'>
-          <MailIcon className='h-3 w-3' />
-          <Text className='font-semibold text-sm'>john.doe@mail.com</Text>
-        </div>
-      </div>
-
-      <div className='my-4 border-l-2 border-blue-300 pl-4'>
-        <Text className='font-semibold'>Matthew Brimo</Text>
-        <div className='flex items-center gap-x-2'>
-          <PhoneIcon className='h-3 w-3' />
-          <Text className='font-semibold text-sm'>(+63) 917 565 9896</Text>
-        </div>
-        <div className='flex items-center gap-x-2'>
-          <MailIcon className='h-3 w-3' />
-          <Text className='font-semibold text-sm'>
-            matthew.brimo@kmcmaggroup.com
-          </Text>
+          <MailIcon className='w-3 h-3' />
+          <Text className='text-sm font-semibold'>john.doe@mail.com</Text>
         </div>
       </div>
 
       <Divider />
 
       <div className='flex items-center gap-x-2'>
-        <UserGroupIcon className='h-5 w-5' />
-        <Text className='font-semibold text-lg'>Tenants:</Text>
+        <UserGroupIcon className='w-5 h-5' />
+        <Text className='text-lg font-semibold'>Tenants:</Text>
       </div>
 
       {data.tenants.map((tenant, i) => (
@@ -118,7 +106,7 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
               'opacity-50'
             }`}
           >
-            <Text className='font-semibold text-sm '>{tenant.name}</Text>
+            <Text className='text-sm font-semibold '>{tenant.name}</Text>
 
             <div className='flex flex-col'>
               <Text className='text-xs md:text-sm'>
@@ -132,7 +120,7 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
               </Text>
             </div>
           </div>
-          <div className='w-8 border-gray-100 flex h-full items-center'>
+          <div className='flex items-center w-8 h-full border-gray-100'>
             <Dropdown
               overlay={menu}
               placement='bottomRight'
@@ -152,7 +140,7 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
             style={{ transitionDuration: '.06s' }}
           >
             <ChatAltIcon className='h-5 text-white' />
-            <Text className='text-white text-xs'>Submit feedback</Text>
+            <Text className='text-xs text-white'>Submit feedback</Text>
           </div>
         </div>
       ))}
@@ -162,11 +150,11 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
           <Divider />
 
           <div className='flex items-center gap-x-2'>
-            <CollectionIcon className='h-5 w-5' />
-            <Text className='font-semibold text-lg'>Unit Details:</Text>
+            <CollectionIcon className='w-5 h-5' />
+            <Text className='text-lg font-semibold'>Unit Details:</Text>
           </div>
 
-          <div className='my-4 border-l-2 border-blue-300 pl-4'>
+          <div className='pl-4 my-4 border-l-2 border-blue-300'>
             <div className='flex flex-col'>
               <Text className='text-sm'>
                 <strong>Floor: </strong>

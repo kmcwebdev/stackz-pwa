@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
 import SiderDialog from 'src/components/Sider-dialog';
 import { useWindowSize } from 'src/utils/use-window-size';
 import HiddenTenants from './HiddenTenants';
@@ -18,11 +18,10 @@ interface TenantsProps {
 
 const Tenants: React.FC<TenantsProps> = ({ data }) => {
   const windowWidth = useWindowSize().width;
-  const [siderOpen, setSiderOpen] = React.useState<boolean>(false);
-  const [selectedTenant, setSelectedTenant] = React.useState<Tenant>();
-  const [selectedHiddenTenant, setSelectedHiddenTenant] =
-    React.useState<Tenant[]>();
-  const [siderMode, setSiderMode] = React.useState<'Tenant Info' | 'Tenants'>();
+  const [siderOpen, setSiderOpen] = useState<boolean>(false);
+  const [selectedTenant, setSelectedTenant] = useState<Tenant>();
+  const [selectedHiddenTenant, setSelectedHiddenTenant] = useState<Tenant[]>();
+  const [siderMode, setSiderMode] = useState<'Tenant Info' | 'Tenants'>();
 
   const containerWidth = classNames(
     {
