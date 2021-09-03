@@ -34,11 +34,6 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
     </Menu>
   );
 
-  const handleShowUnitDetails = (index: number) => {
-    setActiveTenant(index);
-    setShowUnitDetails(true);
-  };
-
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -48,13 +43,18 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
     setTouchEnd(e.targetTouches[0].clientX);
   }
 
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 85) {
+  const handleTouchEnd = (index: number) => {
+    if (touchStart - touchEnd > 150) {
       setShowHiddenTenantButton(true);
     }
 
-    if (touchStart - touchEnd < -85) {
+    if (touchStart - touchEnd < -150) {
       setShowHiddenTenantButton(false);
+    }
+
+    if (touchStart - touchEnd < 150) {
+      setActiveTenant(index);
+      setShowUnitDetails(true);
     }
   };
 
@@ -106,11 +106,10 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
           ${touchedTenant === i && showHiddenTenantButton && 'bg-gray-100'}
           `}
           onTouchStart={(e) => handleTouchStart(e)}
-          onTouchEnd={handleTouchEnd}
+          onTouchEnd={() => handleTouchEnd(i)}
           onTouchMove={(e) => handleTouchMove(e, i)}
         >
           <div
-            onClick={() => handleShowUnitDetails(i)}
             className={`py-2 block transition-all ${
               touchedTenant === i &&
               showHiddenTenantButton &&
