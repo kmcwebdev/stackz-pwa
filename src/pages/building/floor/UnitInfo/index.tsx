@@ -20,7 +20,7 @@ const Index: React.FC<IndexProps> = ({ data }) => {
   const { width } = useWindowSize();
   const [showUnitDetails, setShowUnitDetails] = React.useState<boolean>(false);
   const [activeTenant, setActiveTenant] = React.useState<number>();
-  const [touchedTenant, setTouchedTenant] = React.useState<number>(0);
+  const [touchedTenant, setTouchedTenant] = React.useState<number>();
   const [touchStart, setTouchStart] = React.useState<number>(0);
   const [touchEnd, setTouchEnd] = React.useState<number>(0);
   const [showHiddenTenantButton, setShowHiddenTenantButton] =
@@ -99,7 +99,7 @@ const Index: React.FC<IndexProps> = ({ data }) => {
           onTouchMove={(e) => handleTouchMove(e, i)}
         >
           <div
-            className={`py-2 block transition-all ${
+            className={`py-2 w-full block transition-all ${
               touchedTenant === i &&
               showHiddenTenantButton &&
               tenant.name !== 'VACANT' &&
