@@ -11,12 +11,14 @@ import { Divider, Dropdown, Menu } from 'antd';
 import React, { TouchEvent } from 'react';
 import { FloorData } from 'src/assets/data';
 import { Text } from 'src/components/Text';
+import { useWindowSize } from 'src/utils/use-window-size';
 
 interface UnitInfoProps {
   data: FloorData;
 }
 
 const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
+  const { width } = useWindowSize();
   const [showUnitDetails, setShowUnitDetails] = React.useState<boolean>(false);
   const [activeTenant, setActiveTenant] = React.useState<number>();
   const [touchedTenant, setTouchedTenant] = React.useState<number>(0);
@@ -60,6 +62,11 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
     }
   };
 
+  const handleShowUnitInfo = (index: number) => {
+    setActiveTenant(index);
+    setShowUnitDetails(true);
+  };
+
   return (
     <div>
       <div className='flex items-center gap-x-2'>
@@ -93,6 +100,7 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
           ${activeTenant === i && 'bg-blue-50'}
           ${touchedTenant === i && showHiddenTenantButton && 'bg-gray-100'}
           `}
+          onClick={width > 768 ? () => handleShowUnitInfo(i) : undefined}
           onTouchStart={(e) => handleTouchStart(e)}
           onTouchEnd={() => handleTouchEnd(i)}
           onTouchMove={(e) => handleTouchMove(e, i)}
