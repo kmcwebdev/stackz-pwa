@@ -1,3 +1,4 @@
+import { Menu, Transition } from '@headlessui/react';
 import { ChatAltIcon } from '@heroicons/react/outline';
 import {
   CollectionIcon,
@@ -7,10 +8,10 @@ import {
   UserGroupIcon,
   UserIcon,
 } from '@heroicons/react/solid';
-import { Button, Divider, Dropdown, Form, Menu } from 'antd';
+import { Button, Divider, Form } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import TextArea from 'antd/lib/input/TextArea';
-import React, { TouchEvent } from 'react';
+import React, { Fragment, TouchEvent } from 'react';
 import { FloorData } from 'src/assets/data';
 import Modal from 'src/components/Modal';
 import { Text } from 'src/components/Text';
@@ -47,21 +48,6 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
   const submitFeedbackForm = () => {
     feedbackForm.validateFields().then((values) => console.log(values));
   };
-
-  const menu = (
-    <Menu>
-      <Menu.Item key='1'>1st menu item</Menu.Item>
-      <Menu.Item key='2'>2nd menu item</Menu.Item>
-      <Menu.Item key='3'>3rd menu item</Menu.Item>
-      <Menu.Item
-        className='hidden lg:block'
-        key='4'
-        onClick={() => handleShowFeedbackModal(activeTenant!)}
-      >
-        Submit Feedback
-      </Menu.Item>
-    </Menu>
-  );
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     setTouchStart(e.targetTouches[0].clientX);
@@ -153,14 +139,99 @@ const UnitInfo: React.FC<UnitInfoProps> = ({ data }) => {
             </div>
           </div>
           <div className='flex items-center w-8 h-full border-gray-100'>
-            <Dropdown
-              overlay={menu}
-              placement='bottomRight'
-              trigger={['click']}
-              arrow
-            >
-              <DotsVerticalIcon className='h-4' />
-            </Dropdown>
+            <Menu as='div' className='relative inline-block text-left'>
+              <div>
+                <Menu.Button>
+                  <DotsVerticalIcon
+                    className='-mr-1 ml-2 h-5 w-5'
+                    aria-hidden='true'
+                  />
+                </Menu.Button>
+              </div>
+
+              <Transition
+                as={Fragment}
+                enter='transition ease-out duration-100'
+                enterFrom='transform opacity-0 scale-95'
+                enterTo='transform opacity-100 scale-100'
+                leave='transition ease-in duration-75'
+                leaveFrom='transform opacity-100 scale-100'
+                leaveTo='transform opacity-0 scale-95'
+              >
+                <Menu.Items className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'>
+                  <div className='py-1'>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <p
+                          className={`
+                            ${
+                              active
+                                ? 'bg-gray-100 text-gray-900'
+                                : 'text-gray-700'
+                            }
+                            block px-4 py-2 text-sm
+                          `}
+                        >
+                          Menu Item 1
+                        </p>
+                      )}
+                    </Menu.Item>
+
+                    <Menu.Item>
+                      {({ active }) => (
+                        <p
+                          className={`
+                            ${
+                              active
+                                ? 'bg-gray-100 text-gray-900'
+                                : 'text-gray-700'
+                            }
+                            block px-4 py-2 text-sm
+                          `}
+                        >
+                          Menu Item 2
+                        </p>
+                      )}
+                    </Menu.Item>
+
+                    <Menu.Item>
+                      {({ active }) => (
+                        <p
+                          className={`
+                            ${
+                              active
+                                ? 'bg-gray-100 text-gray-900'
+                                : 'text-gray-700'
+                            }
+                            block px-4 py-2 text-sm
+                          `}
+                        >
+                          Menu Item 3
+                        </p>
+                      )}
+                    </Menu.Item>
+
+                    <Menu.Item>
+                      {({ active }) => (
+                        <p
+                          onClick={() => handleShowFeedbackModal(i)}
+                          className={`
+                            ${
+                              active
+                                ? 'bg-gray-100 text-gray-900'
+                                : 'text-gray-700'
+                            }
+                            block px-4 py-2 text-sm
+                          `}
+                        >
+                          Submit Feedback
+                        </p>
+                      )}
+                    </Menu.Item>
+                  </div>
+                </Menu.Items>
+              </Transition>
+            </Menu>
           </div>
 
           <div

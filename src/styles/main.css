@@ -735,6 +735,15 @@ svg{
 .mb-2{
 	margin-bottom: 0.5rem;
 }
+.-mr-1{
+	margin-right: -0.25rem;
+}
+.ml-2{
+	margin-left: 0.5rem;
+}
+.mt-2{
+	margin-top: 0.5rem;
+}
 .mb-1{
 	margin-bottom: 0.25rem;
 }
@@ -840,6 +849,9 @@ svg{
 .w-3{
 	width: 0.75rem;
 }
+.w-56{
+	width: 14rem;
+}
 .w-9\/12{
 	width: 75%;
 }
@@ -866,6 +878,9 @@ svg{
 }
 .origin-top{
 	transform-origin: top;
+}
+.origin-top-right{
+	transform-origin: top right;
 }
 .-translate-x-full{
 	--tw-translate-x: -100%;
@@ -1630,10 +1645,6 @@ svg{
 }
 
 @media (min-width: 1024px){
-
-	.lg\:block{
-		display: block;
-	}
 
 	.lg\:flex{
 		display: flex;
