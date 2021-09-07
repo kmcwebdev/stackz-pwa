@@ -1111,18 +1111,11 @@ svg{
 	--tw-gradient-from: #3b82f6;
 	--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(59, 130, 246, 0));
 }
-.from-red-500{
-	--tw-gradient-from: #ef4444;
-	--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(239, 68, 68, 0));
-}
 .to-gray-50{
 	--tw-gradient-to: #f9fafb;
 }
 .to-blue-400{
 	--tw-gradient-to: #60a5fa;
-}
-.to-red-400{
-	--tw-gradient-to: #f87171;
 }
 .object-cover{
 	object-fit: cover;

@@ -145,7 +145,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
               : data.length - 1
             : data.length - 1}
         </div>
-        <div className='absolute z-20 grid h-full font-semibold text-white border-2 border-white rounded-md from-red-500 to-red-400 bg-gradient-to-r right-card2 place-items-center'></div>
+        <div className='absolute z-20 grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card2 place-items-center'></div>
         <div className='absolute grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card3 place-items-center '></div>
       </div>
     </>
