@@ -43,4 +43,31 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
+  <script>
+    var LHC_API = LHC_API || {};
+    LHC_API.args = {
+      mode: 'widget',
+      lhc_base_url: '//test-chat.kmc.solutions/',
+      wheight: 450,
+      wwidth: 350,
+      pheight: 520,
+      pwidth: 500,
+      domain: 'osp.kmc.solutions',
+      leaveamessage: true,
+      check_messages: false,
+    };
+    (function () {
+      var po = document.createElement('script');
+      po.type = 'text/javascript';
+      po.setAttribute('crossorigin', 'anonymous');
+      po.async = true;
+      var date = new Date();
+      po.src =
+        '//test-chat.kmc.solutions/design/defaulttheme/js/widgetv2/index.js?' +
+        ('' + date.getFullYear() + date.getMonth() + date.getDate());
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(po, s);
+    })();
+  </script>
 </html>

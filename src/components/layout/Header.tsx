@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ setSidebarOpen }) => {
     if (pathname === '/buildings') {
       setHeaderTitle('Building List');
     } else if (pathname.includes('/floors')) {
-      setHeaderTitle('Building Name');
+      setHeaderTitle('Picadilly Star');
       setShowExportButton(true);
     } else {
       setShowExportButton(false);
@@ -35,7 +35,9 @@ const Header: React.FC<HeaderProps> = ({ setSidebarOpen }) => {
         <MenuAlt1Icon className='w-6 h-6' aria-hidden='true' />
       </button>
       <div className='flex justify-between flex-1 px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center'>{headerTitle}</div>
+        <div className='flex items-center justify-center text-center font-medium'>
+          {headerTitle}
+        </div>
         {showExportButton && (
           <div className='h-full flex items-center'>
             <div className='h-8 w-8 grid place-items-center'>
