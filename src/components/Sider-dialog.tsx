@@ -53,9 +53,7 @@ const SiderDialog: React.FC<SiderDialogProps> = ({
                     </div>
                   </div>
                   <div className='relative flex-1 px-4 my-6 sm:px-6'>
-                    {/* Replace with your content */}
                     {children}
-                    {/* /End replace */}
                   </div>
                 </div>
               </div>

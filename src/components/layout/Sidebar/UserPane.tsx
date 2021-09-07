@@ -1,9 +1,11 @@
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
 import classnames from 'classnames';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 
-const AccountDesktop: React.FC = () => {
+interface UserPaneProps {}
+
+const UserPane: React.FC<UserPaneProps> = () => {
   return (
     <Menu as='div' className='relative inline-block px-3 mt-6 text-left'>
       <div>
@@ -87,4 +89,4 @@ const AccountDesktop: React.FC = () => {
   );
 };
 
-export default AccountDesktop;
+export default UserPane;

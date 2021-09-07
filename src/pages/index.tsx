@@ -1,4 +1,4 @@
-import Layout from 'src/components/Layout';
+import Layout from 'src/components/layout';
 import Routes from './Routes';
 
 const Pages: React.FC = () => {
