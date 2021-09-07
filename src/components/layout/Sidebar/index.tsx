@@ -59,6 +59,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
                     item.href !== `/${pathname.split('/')[1]}`,
                 }
               )}
+              onClick={() => setSidebarOpen(false)}
               aria-current={item.current ? 'page' : undefined}
             >
               <item.icon
