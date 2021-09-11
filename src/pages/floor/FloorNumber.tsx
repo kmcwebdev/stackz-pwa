@@ -17,7 +17,7 @@ const FloorNumber: React.FC<FloorNumberProps> = ({ floorNo }) => {
     <div className='w-16 h-20 md:w-20'>
       <div className='flex flex-col items-center justify-center h-full transition-all bg-gray-200 border-2 border-gray-100 rounded-md cursor-pointer hover:bg-gray-300'>
         <span className='font-semibold uppercase' onClick={toggleSider}>
-          {floorNo === 1 ? 'GF' : floorNo === 0 ? '' : floorNo}
+          {floorNo === 1 ? 'GF' : floorNo === 0 ? 0 : floorNo}
         </span>
       </div>
 
