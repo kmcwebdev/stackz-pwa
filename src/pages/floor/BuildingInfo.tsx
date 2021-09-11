@@ -7,23 +7,25 @@ const BuildingInfo: React.FC = () => {
   return (
     <div className='flex flex-col'>
       <div className='flex items-center gap-x-2'>
-        <OfficeBuildingIcon className='h-5 w-5' />
-        <Text className='text-lg font-semibold'>Accralaw Tower</Text>
+        <OfficeBuildingIcon className='h-5 w-5 text-secondary' />
+        <Text className='text-lg font-semibold text-secondary'>
+          Accralaw Tower
+        </Text>
       </div>
 
-      <Text className='text-xs'>
+      <Text className='text-xs text-white p-2 bg-primary rounded-md my-2'>
         30th St. cor. 2nd Avenue, Crescent Park West, Bonifacio Global City,
         Taguig
       </Text>
 
-      <Divider />
+      <Divider className='my-2 bg-secondary' />
 
       <div className='flex items-center gap-x-2'>
-        <ChartBarIcon className='h-5 w-5' />
-        <Text className='text-lg font-semibold'>Chart</Text>
+        <ChartBarIcon className='h-5 w-5 text-secondary' />
+        <Text className='text-lg font-semibold text-secondary'>Chart</Text>
       </div>
 
-      <div className='w-full h-96 bg-gray-300 my-4'></div>
+      <div className='w-full h-96 bg-primary my-4 rounded-md'></div>
     </div>
   );
 };

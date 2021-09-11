@@ -1,28 +1,44 @@
-import { BackTop } from 'antd';
-import { useState } from 'react';
+import React from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
 
-const Layout: React.FC = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+interface indexProps {}
+
+const Index: React.FC<indexProps> = ({ children }) => {
+  const [sidebarOpen, setSidebarOpen] = React.useState<boolean>(false);
 
   return (
-    <div className='relative flex h-screen overflow-hidden bg-white'>
+    <div className='h-screen w-screen bg-gray-200 relative'>
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      <div className='flex flex-col flex-1 w-0 overflow-hidden'>
-        <Header setSidebarOpen={setSidebarOpen} />
-
-        <main
-          id='my-main'
-          className='relative z-0 flex-1 overflow-y-auto focus:outline-none'
+      <div className='sticky top-0'>
+        <div
+          className='to-yellow-300 from-yellow-400 bg-gradient-to-r absolute w-full overflow-hidden'
+          style={{ height: '220px', zIndex: 1 }}
         >
-          {children}
-        </main>
+          <div
+            className='relative bg-primary rounded-2xl'
+            style={{
+              width: '350px',
+              height: '290px',
+              left: '-120px',
+              top: '-10px',
+              transform: 'rotate(125.47deg)',
+            }}
+          >
+            <div className='absolute h-56 w-56 bg-white bg-opacity-5 left-28 top-12 opacity-60 rounded-full'></div>
+          </div>
+        </div>
+      </div>
 
-        <BackTop target={() => document.getElementById('my-main')!} />
+      <div
+        className='p-5 relative h-full w-full flex flex-col'
+        style={{ zIndex: 2 }}
+      >
+        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        {children}
       </div>
     </div>
   );
 };
 
-export default Layout;
+export default Index;

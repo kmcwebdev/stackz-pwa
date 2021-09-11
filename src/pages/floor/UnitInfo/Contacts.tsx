@@ -22,24 +22,38 @@ const Contacts: React.FC<ContactsProps> = () => {
     <>
       <div className='flex items-center justify-between'>
         <div className='flex items-center gap-x-2'>
-          <UserIcon className='w-5 h-5' />
-          <Text className='text-lg font-semibold'>Contacts:</Text>
+          <UserIcon className='w-5 h-5 text-secondary' />
+          <Text className='font-semibold text-lg text-secondary'>
+            Contacts:
+          </Text>
         </div>
         <PlusCircleIcon
-          className='h-5 text-gray-400 hover:text-blue-500 cursor-pointer'
+          className='h-5 text-secondary hover:text-gray-300 cursor-pointer'
           onClick={toggleAddContactModal}
         />
       </div>
 
-      <div className='pl-4 my-4 border-l-2 border-blue-300'>
-        <Text className='font-semibold'>John Doe</Text>
+      <div className='p-2 my-4 bg-primary rounded-md'>
+        <Text className='font-semibold text-secondary'>John Doe</Text>
         <div className='flex items-center gap-x-2'>
-          <PhoneIcon className='w-3 h-3' />
-          <Text className='text-sm font-semibold'>(+63)9195675658</Text>
+          <PhoneIcon className='w-3 h-3 text-secondary' />
+          <Text className='text-xs text-white'>(+63)9195675658</Text>
         </div>
         <div className='flex items-center gap-x-2'>
-          <MailIcon className='w-3 h-3' />
-          <Text className='text-sm font-semibold'>john.doe@mail.com</Text>
+          <MailIcon className='w-3 h-3 text-secondary' />
+          <Text className='text-xs text-white'>john.doe@mail.com</Text>
+        </div>
+      </div>
+
+      <div className='p-2 my-4 bg-primary rounded-md'>
+        <Text className='font-semibold text-secondary'>Jane Doe</Text>
+        <div className='flex items-center gap-x-2'>
+          <PhoneIcon className='w-3 h-3 text-secondary' />
+          <Text className='text-xs text-white'>(+63)9195675658</Text>
+        </div>
+        <div className='flex items-center gap-x-2'>
+          <MailIcon className='w-3 h-3 text-secondary' />
+          <Text className='text-xs text-white'>john.doe@mail.com</Text>
         </div>
       </div>
 

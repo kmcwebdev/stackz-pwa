@@ -6,18 +6,25 @@ interface TenantMenuProps {
   handleShowFeedbackModal: (index: number) => void;
   toggleAddContactModal: () => void;
   index: number;
+  activeTenant: boolean;
 }
 
 const TenantMenu: React.FC<TenantMenuProps> = ({
   handleShowFeedbackModal,
   toggleAddContactModal,
+  activeTenant,
   index,
 }) => {
   return (
     <Menu as='div' className='relative inline-block text-left'>
       <div>
         <Menu.Button>
-          <DotsVerticalIcon className='-mr-1 ml-2 h-5 w-5' aria-hidden='true' />
+          <DotsVerticalIcon
+            className={`-mr-1 ml-2 h-5 w-5 ${
+              activeTenant ? 'text-primary' : 'text-secondary'
+            }`}
+            aria-hidden='true'
+          />
         </Menu.Button>
       </div>
 

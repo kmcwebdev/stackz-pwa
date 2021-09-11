@@ -23,7 +23,7 @@ const SiderDialog: React.FC<SiderDialogProps> = ({
       >
         <div className='absolute inset-0 overflow-hidden'>
           <Dialog.Overlay className='absolute inset-0' />
-          <div className='fixed inset-y-0 right-0 flex max-w-full pl-0.5 md:pl-10'>
+          <div className='fixed inset-y-0 right-0 flex max-w-full md:pl-10'>
             <Transition.Child
               as={Fragment}
               enter='transform transition ease-in-out duration-500 sm:duration-700'
@@ -35,24 +35,21 @@ const SiderDialog: React.FC<SiderDialogProps> = ({
             >
               <div className='w-screen max-w-lg'>
                 <div className='flex flex-col h-full overflow-y-scroll bg-white shadow-xl'>
-                  <div className='w-full px-4 py-6 border-b sm:px-6 sticky top-0 bg-white z-50'>
-                    <div className='flex items-start justify-between'>
-                      <Dialog.Title className='text-xl font-bold text-gray-900'>
-                        {title}
-                      </Dialog.Title>
-                      <div className='flex items-center ml-3 h-7'>
-                        <button
-                          type='button'
-                          className='text-gray-400 bg-white rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-                          onClick={() => setOpen(false)}
-                        >
-                          <span className='sr-only'>Close panel</span>
-                          <XIcon className='w-6 h-6' aria-hidden='true' />
-                        </button>
-                      </div>
-                    </div>
+                  <div className='w-full px-4 sticky top-0 bg-primary z-50 h-16 flex items-center justify-between'>
+                    <Dialog.Title className='text-xl font-bold text-gray-100'>
+                      {title}
+                    </Dialog.Title>
+
+                    <button
+                      type='button'
+                      className='text-gray-100 rounded-md focus:outline-none'
+                      onClick={() => setOpen(false)}
+                    >
+                      <span className='sr-only'>Close panel</span>
+                      <XIcon className='w-6 h-6' aria-hidden='true' />
+                    </button>
                   </div>
-                  <div className='relative flex-1 px-4 my-6 sm:px-6'>
+                  <div className='relative flex-1 p-4 bg-primary bg-opacity-90 overflow-y-auto overflow-x-hidden'>
                     {children}
                   </div>
                 </div>

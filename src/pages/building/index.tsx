@@ -1,28 +1,18 @@
-import { Input } from 'antd';
-import List from './list';
+import Content from 'src/components/layout/Content';
+import PageLogo from 'src/components/layout/PageLogo';
+import PageTitle from 'src/components/layout/PageTitle';
+import BuildingList from './BuildingList';
 
 const Office: React.FC = () => {
   return (
-    <div className='w-full'>
-      <div className='sticky top-0 z-10 px-2 py-4 bg-white border-b border-gray-200 sm:px-6 lg:px-8'>
-        <div className='min-w-0 flex justify-center md:justify-between'>
-          <h1 className='hidden md:block text-lg font-medium leading-6 text-gray-900 sm:truncate'>
-            Building List
-          </h1>
-          <Input.Search
-            className='md:w-80'
-            placeholder='Search Building'
-            enterButton
-          />
-        </div>
-      </div>
+    <>
+      <PageLogo hasSearch />
+      <PageTitle title='Building List' />
 
-      <div className='m-2 md:m-10'>
-        <div className='grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 p-2'>
-          <List />
-        </div>
-      </div>
-    </div>
+      <Content>
+        <BuildingList />
+      </Content>
+    </>
   );
 };
 

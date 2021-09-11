@@ -28,7 +28,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
       'w-full': data.length === 1,
       'w-9/12 md:w-full': data.length > 1,
     },
-    'block md:flex'
+    'block md:flex relative overflow-hidden'
   );
   const tenantCardWidth = classNames(
     {
@@ -37,7 +37,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
       'flex-1 md:w-4/12': data.length === 3,
       'flex-1 md:w-3/12': data.length >= 4,
     },
-    'h-full p-2 text-white from-blue-500 to-blue-400 bg-gradient-to-r border-2 border-white rounded-md'
+    'h-full p-2 text-white bg-primary border-2 border-gray-100 rounded-md'
   );
 
   const hiddenTenants = classNames(
@@ -100,6 +100,8 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
       </SiderDialog>
 
       <div className={containerWidth}>
+        <div className='h-72 w-72 bg-white bg-opacity-5 opacity-60 absolute top-0 -left-1/4 rounded-full' />
+
         {/* FLOOR TENANT = 1 */}
         {data.map((tenant, i) => (
           <div
@@ -137,7 +139,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
         onClick={() => handleViewHiddenTenants(data)}
       >
         <div className='absolute z-50 w-full h-full transition-all border-2 border-gray-100 cursor-pointer hover:bg-gray-400 hover:bg-opacity-50'></div>
-        <div className='absolute z-30 grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card1 place-items-center'>
+        <div className='absolute z-30 grid h-full font-semibold text-gray-100 border-2 border-gray-100 rounded-md bg-primary right-card1 place-items-center'>
           +
           {data.length > 4
             ? windowWidth > 768
@@ -145,8 +147,8 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
               : data.length - 1
             : data.length - 1}
         </div>
-        <div className='absolute z-20 grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card2 place-items-center'></div>
-        <div className='absolute grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card3 place-items-center '></div>
+        <div className='absolute z-20 grid h-full font-semibold text-gray-100 border-2 border-gray-100 rounded-md bg-primary bg-opacity-90 right-card2 place-items-center'></div>
+        <div className='absolute grid h-full font-semibold text-gray-100 border-2 border-gray-100 rounded-md bg-primary bg-opacity-80 right-card3 place-items-center '></div>
       </div>
     </>
   );
