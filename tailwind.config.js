@@ -7,10 +7,7 @@ module.exports = {
       screens: {
         xs: '320px',
       },
-      colors: {
-        primary: '#1A3865',
-        secondary: '#FFE94F',
-      },
+      colors: {},
       fontFamily: {
         pop: ['Poppins'],
       },

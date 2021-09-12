@@ -1,4 +1,4 @@
-import { Tenant } from 'src/pages/floor/tenants';
+import { Tenant } from 'src/pages/building/tenants';
 
 export const buildingData = [
   {
@@ -18,41 +18,6 @@ export const buildingData = [
   },
   {
     id: 3,
-    name: 'Sample',
-    address: 'Sample Building Address',
-    image:
-      'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  },
-  {
-    id: 4,
-    name: 'Sample',
-    address: 'Sample Building Address',
-    image:
-      'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  },
-  {
-    id: 5,
-    name: 'Sample',
-    address: 'Sample Building Address',
-    image:
-      'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  },
-  {
-    id: 6,
-    name: 'Sample',
-    address: 'Sample Building Address',
-    image:
-      'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  },
-  {
-    id: 7,
-    name: 'Sample',
-    address: 'Sample Building Address',
-    image:
-      'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  },
-  {
-    id: 8,
     name: 'Sample',
     address: 'Sample Building Address',
     image:

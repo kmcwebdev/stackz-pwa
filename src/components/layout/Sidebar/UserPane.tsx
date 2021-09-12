@@ -7,9 +7,9 @@ interface UserPaneProps {}
 
 const UserPane: React.FC<UserPaneProps> = () => {
   return (
-    <Menu as='div' className='relative inline-block text-left w-full'>
+    <Menu as='div' className='relative inline-block px-3 mt-6 text-left'>
       <div>
-        <Menu.Button className='group w-full bg-primary rounded-md px-3.5 py-4 text-sm text-left font-medium text-gray-100 hover:bg-opacity-90 focus:outline-none'>
+        <Menu.Button className='group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500'>
           <span className='flex items-center justify-between w-full'>
             <span className='flex items-center justify-between min-w-0 space-x-3'>
               <img
@@ -18,16 +18,16 @@ const UserPane: React.FC<UserPaneProps> = () => {
                 alt=''
               />
               <span className='flex flex-col flex-1 min-w-0'>
-                <span className='text-sm font-medium text-secondary truncate'>
+                <span className='text-sm font-medium text-gray-900 truncate'>
                   Jessy Schwarz
                 </span>
-                <span className='text-sm text-gray-200 truncate'>
+                <span className='text-sm text-gray-500 truncate'>
                   @jessyschwarz
                 </span>
               </span>
             </span>
             <ChevronDoubleDownIcon
-              className='flex-shrink-0 w-5 h-5 text-secondary group-hover:text-gray-500'
+              className='flex-shrink-0 w-5 h-5 text-gray-400 group-hover:text-gray-500'
               aria-hidden='true'
             />
           </span>
