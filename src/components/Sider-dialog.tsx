@@ -34,7 +34,7 @@ const SiderDialog: React.FC<SiderDialogProps> = ({
               leaveTo='translate-x-full'
             >
               <div className='w-screen max-w-lg'>
-                <div className='flex flex-col h-full bg-white shadow-xl'>
+                <div className='flex flex-col h-full overflow-y-scroll bg-white shadow-xl'>
                   <div className='w-full px-4 sticky top-0 bg-primary z-50 h-16 flex items-center justify-between'>
                     <Dialog.Title className='text-xl font-bold text-gray-100'>
                       {title}
