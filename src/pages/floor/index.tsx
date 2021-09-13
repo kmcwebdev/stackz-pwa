@@ -146,7 +146,7 @@ const Index: React.FC = () => {
           </div>
           <div
             className={`${
-              filterOpen ? 'h-40 border-b border-gray-200' : 'h-0'
+              filterOpen ? 'h-48 md:h-40 border-b border-gray-200' : 'h-0'
             } w-full overflow-hidden transition-all`}
           >
             {selectedOption === 'Lease Expiry' && (
