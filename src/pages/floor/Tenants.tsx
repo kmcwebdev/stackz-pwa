@@ -25,7 +25,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
       'flex-1 md:w-4/12': data.length === 3,
       'flex-1 md:w-3/12': data.length >= 4,
     },
-    'h-20 text-white pr-2 relative overflow-hidden'
+    'h-20 text-white relative overflow-hidden bg-primary border-2 rounded-md border-white p-2'
   );
 
   const hiddenTenants = classNames(
@@ -79,7 +79,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
 
   return (
     <>
-      <div className='flex-1 flex ml-2 gap-x-2 overflow-hidden text-white h-20 bg-primary border-2 rounded-md border-white p-2'>
+      <div className='flex-1 flex ml-2 gap-x-1 overflow-hidden text-white h-20'>
         {data.map((tenant, i) => (
           <div
             key={i}
