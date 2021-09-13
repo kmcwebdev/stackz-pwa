@@ -91,7 +91,6 @@ const Index: React.FC<IndexProps> = ({ data }) => {
           ${activeTenant === i && 'bg-gray-200'}
           ${touchedTenant === i && showHiddenTenantButton && 'bg-gray-100'}
           `}
-          onClick={() => handleShowUnitInfo(i)}
           onTouchStart={(e) => handleTouchStart(e)}
           onTouchEnd={(e) => handleTouchEnd(e, i)}
           onTouchMove={(e) => handleTouchMove(e, i)}
@@ -104,7 +103,11 @@ const Index: React.FC<IndexProps> = ({ data }) => {
                 showHiddenTenantButton && touchedTenant === i ? '30%' : '0',
             }}
           >
-            <div className='p-2 block transition-all' style={{ width: '90%' }}>
+            <div
+              className='p-2 block transition-all'
+              style={{ width: '90%' }}
+              onClick={() => handleShowUnitInfo(i)}
+            >
               <Text className='text-sm font-semibold text-primary'>
                 {tenant.name}
               </Text>

@@ -664,6 +664,9 @@ svg{
 .left-0{
 	left: 0px;
 }
+.-right-16{
+	right: -4rem;
+}
 .z-20{
 	z-index: 20;
 }
