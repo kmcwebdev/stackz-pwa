@@ -2,9 +2,15 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import SiderDialog from 'src/components/Sider-dialog';
 import { useWindowSize } from 'src/utils/use-window-size';
-import { Tenant } from '../building/tenants';
-import HiddenTenants from '../building/tenants/HiddenTenants';
-import TenantInfo from '../building/tenants/TenantInfo';
+import HiddenTenants from './HiddenTenants';
+import TenantInfo from './TenantInfo';
+
+export interface Tenant {
+  name: string;
+  area: number;
+  leaseExpiryDate?: string | null;
+  verifiedOn?: string | null;
+}
 
 interface TenantsProps {
   data: Tenant[];

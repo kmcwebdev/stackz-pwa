@@ -10,20 +10,23 @@ const HiddenTenants: React.FC<HiddenTenantsProps> = ({ data }) => {
   return (
     <>
       {data.map((tenant, i) => (
-        <div key={i} className='my-4 border-l-2 border-blue-300 pl-4'>
+        <div
+          key={i}
+          className='p-2 mb-2 h-20 flex items-center rounded-md bg-gray-200'
+        >
           <div className='flex flex-col'>
             <Text className='text-sm'>
-              <strong>Tenant: </strong>
+              <strong className='text-primary'>Tenant: </strong>
               {tenant.name}
             </Text>
 
-            <Text className='text-sm'>
-              <strong>Lease Floor Area: </strong>
+            <Text className='text-xs'>
+              <strong className='text-primary'>Lease Floor Area: </strong>
               1,009 sqm
             </Text>
 
-            <Text className='text-sm'>
-              <strong>Base Price: </strong>
+            <Text className='text-xs'>
+              <strong className='text-primary'>Base Price: </strong>
               Php 1,350
             </Text>
           </div>

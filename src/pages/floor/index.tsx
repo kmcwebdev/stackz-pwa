@@ -8,7 +8,7 @@ import SiderDialog from 'src/components/Sider-dialog';
 import { Text } from 'src/components/Text';
 import BuildingInfo from './BuildingInfo';
 import Gallery from './Gallery';
-import Tenants from './Tenants';
+import Tenants from './tenants';
 import UnitInfo from './UnitInfo';
 
 const leastExpiryButtons: string[] = [

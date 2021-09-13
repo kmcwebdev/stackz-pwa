@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ hasExportButton, headerTitle }) => {
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
           <span className='sr-only'>Open sidebar</span>
-          <MenuAlt1Icon className='w-5 h-5' aria-hidden='true' />
+          <MenuAlt1Icon className='w-5 h-5 text-primary' aria-hidden='true' />
         </button>
 
         <div className='flex items-center justify-center text-center font-medium text-primary'>
@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ hasExportButton, headerTitle }) => {
         </div>
 
         <div className='h-full flex items-center'>
-          {hasExportButton && <UploadIcon className='h-5 w-5' />}
+          {hasExportButton && <UploadIcon className='h-5 w-5 text-primary' />}
         </div>
       </div>
     </>

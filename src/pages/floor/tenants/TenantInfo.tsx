@@ -8,18 +8,18 @@ interface TenantInfoProps {
 
 const TenantInfo: React.FC<TenantInfoProps> = ({ data }) => {
   return (
-    <div className='pl-4 my-4 border-l-2 border-blue-300'>
+    <div className='p-2 bg-gray-200 rounded-md h-20 flex items-center'>
       <div className='flex flex-col'>
         <Text className='text-sm'>
-          <strong>Tenant: </strong>
+          <strong className='text-primary'>Tenant: </strong>
           {data.name}
         </Text>
-        <Text className='text-sm'>
-          <strong>Lease Floor Area: </strong>
+        <Text className='text-xs'>
+          <strong className='text-primary'>Lease Floor Area: </strong>
           1,009 sqm
         </Text>
-        <Text className='text-sm'>
-          <strong>Base Price: </strong>
+        <Text className='text-xs'>
+          <strong className='text-primary'>Base Price: </strong>
           Php 1,350
         </Text>
       </div>

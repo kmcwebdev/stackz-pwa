@@ -1,4 +1,4 @@
-import { Tenant } from 'src/pages/building/tenants';
+import { Tenant } from 'src/pages/floor/tenants';
 
 export const buildingData = [
   {
