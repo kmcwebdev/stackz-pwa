@@ -103,7 +103,7 @@ const Index: React.FC<IndexProps> = ({ data }) => {
             }}
           >
             <div
-              className='p-2 block transition-all'
+              className='p-2 block transition-all truncate'
               style={{ width: '90%' }}
               onClick={() => handleShowUnitInfo(i)}
             >
