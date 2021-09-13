@@ -1169,10 +1169,6 @@ svg{
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 }
-.px-2{
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
-}
 .py-1{
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
@@ -1180,6 +1176,10 @@ svg{
 .px-3{
 	padding-left: 0.75rem;
 	padding-right: 0.75rem;
+}
+.px-2{
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 }
 .px-3\.5{
 	padding-left: 0.875rem;
@@ -1627,10 +1627,6 @@ svg{
 
 	.md\:items-start{
 		align-items: flex-start;
-	}
-
-	.md\:justify-center{
-		justify-content: center;
 	}
 
 	.md\:rounded-md{

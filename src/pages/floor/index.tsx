@@ -80,7 +80,7 @@ const Index: React.FC = () => {
     <span className='relative z-0 inline-flex shadow-sm rounded-md w-full md:w-6/12'>
       <button
         type='button'
-        className={`relative inline-flex items-center px-2 py-2 rounded-l-md border-2 border-primary text-sm font-medium  hover:bg-primary hover:text-white transition-all justify-center w-1/2 ${
+        className={`relative inline-flex items-center py-2 rounded-l-md border-2 border-primary text-xs md:text-sm font-medium  hover:bg-primary hover:text-white transition-all justify-center w-1/2 ${
           selectedOption === 'Lease Expiry'
             ? 'bg-primary text-white'
             : 'bg-white text-primary'
@@ -91,7 +91,7 @@ const Index: React.FC = () => {
       </button>
       <button
         type='button'
-        className={`-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border-2 border-primary text-sm font-medium hover:bg-primary hover:text-white justify-center transition-all w-1/2 ${
+        className={`-ml-px relative inline-flex items-center py-2 rounded-r-md border-2 border-primary text-xs md:text-sm font-medium hover:bg-primary hover:text-white justify-center transition-all w-1/2 ${
           selectedOption === 'Tenant Classification'
             ? 'bg-primary text-white'
             : 'bg-white text-primary'
