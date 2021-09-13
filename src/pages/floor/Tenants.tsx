@@ -20,12 +20,12 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
 
   const tenantCardWidth = classNames(
     {
-      'w-full': data.length === 1,
+      'flex-1': data.length === 1,
       'flex-1 md:w-6/12': data.length === 2,
       'flex-1 md:w-4/12': data.length === 3,
       'flex-1 md:w-3/12': data.length >= 4,
     },
-    'h-20 text-white pr-2'
+    'h-20 text-white pr-2 relative overflow-hidden'
   );
 
   const hiddenTenants = classNames(
@@ -91,22 +91,18 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
               `}
             onClick={() => handleViewTenants(tenant)}
           >
-            <div className='overflow-hidden block'>
-              <p className='mb-1 text-xs font-semibold capitalize truncate md:text-md'>
-                {tenant.name}
+            <p className='mb-1 text-xs font-semibold capitalize truncate md:text-md'>
+              {tenant.name}
+            </p>
+            <p className='text-xs capitalize truncate'>{tenant.area}</p>
+            {tenant.leaseExpiryDate && (
+              <p className='text-xs capitalize truncate'>
+                {tenant.leaseExpiryDate}
               </p>
-              <p className='text-xs capitalize truncate'>{tenant.area}</p>
-              {tenant.leaseExpiryDate && (
-                <p className='text-xs capitalize truncate'>
-                  {tenant.leaseExpiryDate}
-                </p>
-              )}
-              {tenant.verifiedOn && (
-                <p className='text-xs capitalize truncate'>
-                  {tenant.verifiedOn}
-                </p>
-              )}
-            </div>
+            )}
+            {tenant.verifiedOn && (
+              <p className='text-xs capitalize truncate'>{tenant.verifiedOn}</p>
+            )}
           </div>
         ))}
       </div>
