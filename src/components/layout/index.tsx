@@ -6,7 +6,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = React.useState<boolean>(true);
+  const [sidebarOpen, setSidebarOpen] = React.useState<boolean>(false);
 
   return (
     <div className='relative flex h-screen overflow-hidden'>
