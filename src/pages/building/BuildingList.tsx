@@ -13,7 +13,7 @@ const BuildingList: React.FC = () => {
   return (
     <>
       <div className='h-full w-full block relative'>
-        <div className='flex flex-col sticky top-0'>
+        <div className='flex flex-col sticky top-0 z-30'>
           <div className='border-b border-gray-200 flex items-center justify-between px-4 bg-white'>
             <Text className='h-14 font-bold text-primary border-b-2 border-primary flex items-center'>
               Buildings
