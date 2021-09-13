@@ -9,16 +9,6 @@
 
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://cra.link/PWA
-import { notification } from 'antd';
-
-const updateNotification = () => {
-  const args = {
-    message: 'Application update.',
-    description: 'Update available! To update, close all windows and reopen.',
-    duration: 0,
-  };
-  notification.open(args);
-};
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -76,11 +66,6 @@ function registerValidSW(swUrl: string, config?: Config) {
       // Check for updates at start.
       registration.update();
 
-      // Check for updates every 5 min.
-      setInterval(() => {
-        registration.update();
-      }, 1000 * 60 * 5);
-
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
@@ -96,8 +81,6 @@ function registerValidSW(swUrl: string, config?: Config) {
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://cra.link/PWA.'
               );
-
-              updateNotification();
 
               // Execute callback
               if (config && config.onUpdate) {
