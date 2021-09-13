@@ -19,28 +19,10 @@ const BuildingList: React.FC = () => {
               Buildings
             </Text>
 
-            <div className='flex items-center gap-x-4 h-14 relative'>
-              <div
-                className={`h-full flex items-center justify-center relative ${
-                  showSearch && 'triangle'
-                }`}
-              >
-                <SearchIcon
-                  className='h-5  w-5 text-primary'
-                  onClick={() => setShowSearch(!showSearch)}
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            className={`${
-              showSearch ? 'h-20 border-b border-gray-200' : 'h-0 p-0'
-            } w-full overflow-hidden transition-all bg-white`}
-          >
-            <div className='w-full px-4 py-6'>
+            <div className='flex items-center w-7/12 md:w-6/12 gap-x-4 h-14 relative'>
               <Input.Search
                 placeholder='Search building...'
-                enterButton='Search'
+                enterButton={<SearchIcon className='h-5 w-5' />}
               />
             </div>
           </div>
