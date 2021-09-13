@@ -727,9 +727,6 @@ svg{
 .mb-1{
 	margin-bottom: 0.25rem;
 }
-.ml-2{
-	margin-left: 0.5rem;
-}
 .mt-6{
 	margin-top: 1.5rem;
 }
@@ -747,6 +744,9 @@ svg{
 }
 .-mr-1{
 	margin-right: -0.25rem;
+}
+.ml-2{
+	margin-left: 0.5rem;
 }
 .mt-2{
 	margin-top: 0.5rem;
@@ -973,16 +973,11 @@ svg{
 .gap-x-4{
 	column-gap: 1rem;
 }
-.gap-x-1{
-	column-gap: 0.25rem;
-}
 .gap-x-2{
 	column-gap: 0.5rem;
 }
-.space-x-2 > :not([hidden]) ~ :not([hidden]){
-	--tw-space-x-reverse: 0;
-	margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-	margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+.gap-x-1{
+	column-gap: 0.25rem;
 }
 .space-y-1 > :not([hidden]) ~ :not([hidden]){
 	--tw-space-y-reverse: 0;
@@ -1033,9 +1028,6 @@ svg{
 }
 .rounded-full{
 	border-radius: 9999px;
-}
-.rounded-sm{
-	border-radius: 0.125rem;
 }
 .border-2{
 	border-width: 2px;
@@ -1192,10 +1184,6 @@ svg{
 .py-2{
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
-}
-.px-5{
-	padding-left: 1.25rem;
-	padding-right: 1.25rem;
 }
 .py-1{
 	padding-top: 0.25rem;
@@ -1589,6 +1577,10 @@ svg{
 
 	.md\:m-10{
 		margin: 2.5rem;
+	}
+
+	.md\:ml-1{
+		margin-left: 0.25rem;
 	}
 
 	.md\:block{

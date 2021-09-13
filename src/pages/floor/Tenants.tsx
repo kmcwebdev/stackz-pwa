@@ -79,7 +79,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
 
   return (
     <>
-      <div className='flex-1 flex ml-2 gap-x-1 overflow-hidden text-white h-20'>
+      <div className='flex-1 flex md:ml-1 gap-x-1 overflow-hidden text-white h-20'>
         {data.map((tenant, i) => (
           <div
             key={i}

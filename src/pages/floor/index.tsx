@@ -173,11 +173,11 @@ const Index: React.FC = () => {
           </div>
           <div className='p-4 border-b border-gray-200'>{radioGroup}</div>
 
-          <div className='flex text-center space-x-2 py-2 px-5 border-b border-gray-200'>
-            <div className='w-16 text-xs font-semibold bg-gray-100 rounded-sm py-1'>
+          <div className='flex text-center py-2 px-4 gap-x-2 border-b border-gray-200'>
+            <div className='w-16 md:w-20 text-xs font-semibold bg-gray-100 rounded-md py-1'>
               Floor
             </div>
-            <div className='flex-1 text-xs font-semibold bg-gray-100 rounded-sm py-1'>
+            <div className='flex-1 text-xs font-semibold bg-gray-100 rounded-md py-1'>
               Tenant
             </div>
           </div>
