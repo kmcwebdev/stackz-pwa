@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import React, { Fragment } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
+import { useWindowSize } from 'src/utils/use-window-size';
 import UserPane from './UserPane';
 
 interface SidebarProps {
@@ -28,6 +29,8 @@ const navigation = [
 
 const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
   const { pathname } = useLocation();
+
+  const { width } = useWindowSize();
 
   const topSection: JSX.Element = (
     <>
@@ -55,7 +58,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
                 {
                   'bg-gray-200 text-gray-900':
                     item.href === `/${pathname.split('/')[1]}`,
-                  'text-gray-700 hover:text-gray-900 hover:bg-gray-50':
+                  'text-gray-100 hover:text-gray-900 hover:bg-gray-50':
                     item.href !== `/${pathname.split('/')[1]}`,
                 }
               )}
@@ -64,8 +67,8 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
             >
               <item.icon
                 className={classnames('mr-3 flex-shrink-0 h-6 w-6', {
-                  'text-gray-500': item.href === `/${pathname.split('/')[1]}`,
-                  'text-gray-400 group-hover:text-gray-500':
+                  'text-gray-900': item.href === `/${pathname.split('/')[1]}`,
+                  'text-gray-100 group-hover:text-gray-500':
                     item.href !== `/${pathname.split('/')[1]}`,
                 })}
                 aria-hidden='true'
@@ -82,67 +85,72 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
     <>
       {/* Desktop Sidebar */}
       <div className='hidden lg:flex lg:flex-shrink-0'>
-        <div className='flex flex-col w-64 pt-5 pb-4 bg-gray-100 border-r border-gray-200'>
+        <div className='flex flex-col w-64 pt-5 pb-4 bg-primary border-r border-gray-200'>
           {topSection}
           {sideNavigation}
         </div>
       </div>
 
-      <Transition.Root show={sidebarOpen} as={Fragment}>
-        <Dialog
-          as='div'
-          className='fixed inset-0 z-40 flex lg:hidden'
-          onClose={setSidebarOpen}
-        >
-          <Transition.Child
-            as={Fragment}
-            enter='transition-opacity ease-linear duration-300'
-            enterFrom='opacity-0'
-            enterTo='opacity-100'
-            leave='transition-opacity ease-linear duration-300'
-            leaveFrom='opacity-100'
-            leaveTo='opacity-0'
+      {width <= 768 && (
+        <Transition.Root show={sidebarOpen} as={Fragment}>
+          <Dialog
+            as='div'
+            className='fixed inset-0 z-40 flex md:hidden'
+            onClose={setSidebarOpen}
           >
-            <Dialog.Overlay className='fixed inset-0 bg-gray-600 bg-opacity-75' />
-          </Transition.Child>
-          <Transition.Child
-            as={Fragment}
-            enter='transition ease-in-out duration-300 transform'
-            enterFrom='-translate-x-full'
-            enterTo='translate-x-0'
-            leave='transition ease-in-out duration-300 transform'
-            leaveFrom='translate-x-0'
-            leaveTo='-translate-x-full'
-          >
-            <div className='relative flex flex-col flex-1 w-full max-w-xs pt-5 pb-4 bg-white'>
-              <Transition.Child
-                as={Fragment}
-                enter='ease-in-out duration-300'
-                enterFrom='opacity-0'
-                enterTo='opacity-100'
-                leave='ease-in-out duration-300'
-                leaveFrom='opacity-100'
-                leaveTo='opacity-0'
-              >
-                <div className='absolute top-0 right-0 pt-2 -mr-12'>
-                  <button
-                    type='button'
-                    className='flex items-center justify-center w-10 h-10 ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    <span className='sr-only'>Close sidebar</span>
-                    <XIcon className='w-6 h-6 text-white' aria-hidden='true' />
-                  </button>
-                </div>
-              </Transition.Child>
+            <Transition.Child
+              as={Fragment}
+              enter='transition-opacity ease-linear duration-300'
+              enterFrom='opacity-0'
+              enterTo='opacity-100'
+              leave='transition-opacity ease-linear duration-300'
+              leaveFrom='opacity-100'
+              leaveTo='opacity-0'
+            >
+              <Dialog.Overlay className='fixed inset-0 bg-gray-600 bg-opacity-75' />
+            </Transition.Child>
+            <Transition.Child
+              as={Fragment}
+              enter='transition ease-in-out duration-300 transform'
+              enterFrom='-translate-x-full'
+              enterTo='translate-x-0'
+              leave='transition ease-in-out duration-300 transform'
+              leaveFrom='translate-x-0'
+              leaveTo='-translate-x-full'
+            >
+              <div className='relative flex flex-col flex-1 w-full max-w-xs pt-5 pb-4 bg-white'>
+                <Transition.Child
+                  as={Fragment}
+                  enter='ease-in-out duration-300'
+                  enterFrom='opacity-0'
+                  enterTo='opacity-100'
+                  leave='ease-in-out duration-300'
+                  leaveFrom='opacity-100'
+                  leaveTo='opacity-0'
+                >
+                  <div className='absolute top-0 right-0 pt-2 -mr-12'>
+                    <button
+                      type='button'
+                      className='flex items-center justify-center w-10 h-10 ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
+                      onClick={() => setSidebarOpen(false)}
+                    >
+                      <span className='sr-only'>Close sidebar</span>
+                      <XIcon
+                        className='w-6 h-6 text-white'
+                        aria-hidden='true'
+                      />
+                    </button>
+                  </div>
+                </Transition.Child>
 
-              {topSection}
-              {sideNavigation}
-            </div>
-          </Transition.Child>
-          <div className='flex-shrink-0 w-14' aria-hidden='true'></div>
-        </Dialog>
-      </Transition.Root>
+                {topSection}
+                {sideNavigation}
+              </div>
+            </Transition.Child>
+            <div className='flex-shrink-0 w-14' aria-hidden='true'></div>
+          </Dialog>
+        </Transition.Root>
+      )}
     </>
   );
 };

@@ -1,26 +1,17 @@
-import { BackTop } from 'antd';
-import { useState } from 'react';
-import Header from './Header';
+import React, { JSXElementConstructor, ReactElement } from 'react';
 import Sidebar from './Sidebar';
 
-const Layout: React.FC = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+interface LayoutProps {
+  children: ReactElement<any, string | JSXElementConstructor<any>>;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const [sidebarOpen, setSidebarOpen] = React.useState<boolean>(true);
 
   return (
-    <div className='relative flex h-screen overflow-hidden bg-white'>
+    <div className='relative flex h-screen overflow-hidden'>
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      <div className='flex flex-col flex-1 w-0 overflow-hidden'>
-        <Header setSidebarOpen={setSidebarOpen} />
-
-        <main
-          id='my-main'
-          className='relative z-0 flex-1 overflow-y-auto focus:outline-none'
-        >
-          {children}
-        </main>
-
-        <BackTop target={() => document.getElementById('my-main')!} />
-      </div>
+      {children}
     </div>
   );
 };

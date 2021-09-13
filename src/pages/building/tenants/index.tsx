@@ -23,13 +23,6 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
   const [selectedHiddenTenant, setSelectedHiddenTenant] = useState<Tenant[]>();
   const [siderMode, setSiderMode] = useState<'Tenant Info' | 'Tenants'>();
 
-  const containerWidth = classNames(
-    {
-      'w-full': data.length === 1,
-      'w-9/12 md:w-full': data.length > 1,
-    },
-    'block md:flex'
-  );
   const tenantCardWidth = classNames(
     {
       'w-full': data.length === 1,
@@ -45,7 +38,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
       hidden: data.length === 1,
       'flex md:hidden': data.length === 2,
     },
-    'relative w-3/12 h-full'
+    'relative w-16 h-full'
   );
 
   const hideTenant = (i: number): string => {
@@ -99,54 +92,56 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
         )}
       </SiderDialog>
 
-      <div className={containerWidth}>
-        {/* FLOOR TENANT = 1 */}
-        {data.map((tenant, i) => (
-          <div
-            key={i}
-            className={`
+      <div className='flex relative h-full gap-x-2 w-full'>
+        <div className='flex-1 block overflow-hidden'>
+          {/* FLOOR TENANT = 1 */}
+          {data.map((tenant, i) => (
+            <div
+              key={i}
+              className={`
               ${tenantCardWidth}
               ${data.length === 2 && i === 1 && 'hidden md:block'}
               ${data.length === 3 && i >= 1 && 'hidden md:block'}
               ${data.length >= 4 && hideTenant(i)}
               `}
-            onClick={() => handleViewTenants(tenant)}
-          >
-            <div className='w-full overflow-hidden'>
-              <p className='mb-1 text-xs font-semibold capitalize truncate md:text-md'>
-                {tenant.name}
-              </p>
-              <p className='text-xs capitalize truncate'>{tenant.area}</p>
-              {tenant.leaseExpiryDate && (
-                <p className='text-xs capitalize truncate'>
-                  {tenant.leaseExpiryDate}
+              onClick={() => handleViewTenants(tenant)}
+            >
+              <div className='w-full overflow-hidden'>
+                <p className='mb-1 text-xs font-semibold capitalize truncate md:text-md'>
+                  {tenant.name}
                 </p>
-              )}
-              {tenant.verifiedOn && (
-                <p className='text-xs capitalize truncate'>
-                  {tenant.verifiedOn}
-                </p>
-              )}
+                <p className='text-xs capitalize truncate'>{tenant.area}</p>
+                {tenant.leaseExpiryDate && (
+                  <p className='text-xs capitalize truncate'>
+                    {tenant.leaseExpiryDate}
+                  </p>
+                )}
+                {tenant.verifiedOn && (
+                  <p className='text-xs capitalize truncate'>
+                    {tenant.verifiedOn}
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      <div
-        className={`${hiddenTenants} ${data.length <= 4 && 'md:hidden'}`}
-        onClick={() => handleViewHiddenTenants(data)}
-      >
-        <div className='absolute z-50 w-full h-full transition-all border-2 border-gray-100 cursor-pointer hover:bg-gray-400 hover:bg-opacity-50'></div>
-        <div className='absolute z-30 grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card1 place-items-center'>
-          +
-          {data.length > 4
-            ? windowWidth > 768
-              ? data.length - 4
-              : data.length - 1
-            : data.length - 1}
+          ))}
         </div>
-        <div className='absolute z-20 grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card2 place-items-center'></div>
-        <div className='absolute grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card3 place-items-center '></div>
+
+        <div
+          className={`${hiddenTenants} ${data.length <= 4 && 'md:hidden'}`}
+          onClick={() => handleViewHiddenTenants(data)}
+        >
+          <div className='absolute z-50 w-full h-full transition-all border-2 border-gray-100 cursor-pointer hover:bg-gray-400 hover:bg-opacity-50'></div>
+          <div className='absolute z-30 grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card1 place-items-center'>
+            +
+            {data.length > 4
+              ? windowWidth > 768
+                ? data.length - 4
+                : data.length - 1
+              : data.length - 1}
+          </div>
+          <div className='absolute z-20 grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card2 place-items-center'></div>
+          <div className='absolute grid h-full font-semibold text-white border-2 border-white rounded-md from-blue-500 to-blue-400 bg-gradient-to-r right-card3 place-items-center '></div>
+        </div>
       </div>
     </>
   );

@@ -23,6 +23,76 @@ export const buildingData = [
     image:
       'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
+  {
+    id: 2,
+    name: 'Aura',
+    address: 'Aura Building Address',
+    image:
+      'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  },
+  {
+    id: 3,
+    name: 'Sample',
+    address: 'Sample Building Address',
+    image:
+      'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  },
+  {
+    id: 2,
+    name: 'Aura',
+    address: 'Aura Building Address',
+    image:
+      'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  },
+  {
+    id: 3,
+    name: 'Sample',
+    address: 'Sample Building Address',
+    image:
+      'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  },
+  {
+    id: 2,
+    name: 'Aura',
+    address: 'Aura Building Address',
+    image:
+      'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  },
+  {
+    id: 3,
+    name: 'Sample',
+    address: 'Sample Building Address',
+    image:
+      'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  },
+  {
+    id: 2,
+    name: 'Aura',
+    address: 'Aura Building Address',
+    image:
+      'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  },
+  {
+    id: 3,
+    name: 'Sample',
+    address: 'Sample Building Address',
+    image:
+      'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  },
+  {
+    id: 2,
+    name: 'Aura',
+    address: 'Aura Building Address',
+    image:
+      'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  },
+  {
+    id: 3,
+    name: 'Sample',
+    address: 'Sample Building Address',
+    image:
+      'https://images.pexels.com/photos/1662159/pexels-photo-1662159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  },
 ];
 
 export interface FloorData {

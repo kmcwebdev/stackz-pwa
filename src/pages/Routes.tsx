@@ -6,7 +6,7 @@ import Result from 'src/components/Result';
 
 const Dashboard = lazy(() => import('./Dashboard'));
 const Building = lazy(() => import('./building'));
-const Floor = lazy(() => import('./building/floor'));
+const Floor = lazy(() => import('./floor'));
 
 const Routes: React.FC = () => {
   return (
