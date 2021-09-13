@@ -36,8 +36,8 @@ const SiderDialog: React.FC<SiderDialogProps> = ({
               <div className='w-screen max-w-lg'>
                 <div className='flex flex-col h-full overflow-y-scroll bg-white shadow-xl'>
                   <div className='w-full px-4 py-6 border-b sm:px-6 sticky top-0 bg-white z-50'>
-                    <div className='flex items-start justify-between'>
-                      <Dialog.Title className='text-xl font-bold text-gray-900'>
+                    <div className='flex items-center justify-between'>
+                      <Dialog.Title className='font-bold text-primary'>
                         {title}
                       </Dialog.Title>
                       <div className='flex items-center ml-3 h-7'>

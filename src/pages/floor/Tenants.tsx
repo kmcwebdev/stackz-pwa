@@ -1,7 +1,10 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
+import SiderDialog from 'src/components/Sider-dialog';
 import { useWindowSize } from 'src/utils/use-window-size';
 import { Tenant } from '../building/tenants';
+import HiddenTenants from '../building/tenants/HiddenTenants';
+import TenantInfo from '../building/tenants/TenantInfo';
 
 interface TenantsProps {
   data: Tenant[];
@@ -11,7 +14,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
   const windowWidth = useWindowSize().width;
   const [siderOpen, setSiderOpen] = useState<boolean>(false);
   const [selectedTenant, setSelectedTenant] = useState<Tenant>();
-  // const [selectedHiddenTenant, setSelectedHiddenTenant] = useState<Tenant[]>();
+  const [selectedHiddenTenant, setSelectedHiddenTenant] = useState<Tenant[]>();
   const [siderMode, setSiderMode] = useState<'Tenant Info' | 'Tenants'>();
 
   console.log(siderOpen);
@@ -56,29 +59,37 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
     setSiderOpen(true);
   };
 
-  // const handleViewHiddenTenants = (tenants: Tenant[]) => {
-  //   let hiddenTenants: Tenant[] = [];
-  //   if (tenants) {
-  //     tenants.map((item, i) => {
-  //       if (windowWidth > 768) {
-  //         if (i >= 4) {
-  //           hiddenTenants.push(item);
-  //         }
-  //       } else {
-  //         if (i >= 1) {
-  //           hiddenTenants.push(item);
-  //         }
-  //       }
-  //       return true;
-  //     });
-  //   }
-  //   setSelectedHiddenTenant(hiddenTenants);
-  //   setSiderMode('Tenants');
-  //   setSiderOpen(true);
-  // };
+  const handleViewHiddenTenants = (tenants: Tenant[]) => {
+    let hiddenTenants: Tenant[] = [];
+    if (tenants) {
+      tenants.map((item, i) => {
+        if (windowWidth > 768) {
+          if (i >= 4) {
+            hiddenTenants.push(item);
+          }
+        } else {
+          if (i >= 1) {
+            hiddenTenants.push(item);
+          }
+        }
+        return true;
+      });
+    }
+    setSelectedHiddenTenant(hiddenTenants);
+    setSiderMode('Tenants');
+    setSiderOpen(true);
+  };
 
   return (
     <>
+      <SiderDialog open={siderOpen} setOpen={setSiderOpen} title={siderMode!}>
+        {siderMode === 'Tenant Info' ? (
+          <TenantInfo data={selectedTenant!} />
+        ) : (
+          <HiddenTenants data={selectedHiddenTenant!} />
+        )}
+      </SiderDialog>
+
       <div className='flex-1 flex md:ml-1 gap-x-1 overflow-hidden text-white h-20'>
         {data.map((tenant, i) => (
           <div
@@ -110,6 +121,7 @@ const Tenants: React.FC<TenantsProps> = ({ data }) => {
         className={`w-16 h-full relative ${hiddenTenants} ${
           data.length <= 4 && 'md:hidden'
         }`}
+        onClick={() => handleViewHiddenTenants(data)}
       >
         <div className='absolute z-50 w-full h-full transition-all border-2 border-gray-100 cursor-pointer hover:bg-gray-400 hover:bg-opacity-50'></div>
         <div className='absolute z-30 grid h-full font-semibold text-white border-2 border-white rounded-md bg-primary right-card1 place-items-center'>

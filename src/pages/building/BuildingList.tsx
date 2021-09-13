@@ -12,9 +12,9 @@ const BuildingList: React.FC = () => {
 
   return (
     <>
-      <div className='h-full w-full bg-white block relative'>
-        <div className='flex flex-col sticky top-0 bg-white'>
-          <div className='border-b border-gray-200 flex items-center justify-between px-4 '>
+      <div className='h-full w-full block relative'>
+        <div className='flex flex-col sticky top-0'>
+          <div className='border-b border-gray-200 flex items-center justify-between px-4 bg-white'>
             <Text className='h-14 font-bold text-primary border-b-2 border-primary flex items-center'>
               Buildings
             </Text>
@@ -35,7 +35,7 @@ const BuildingList: React.FC = () => {
           <div
             className={`${
               showSearch ? 'h-20 border-b border-gray-200' : 'h-0 p-0'
-            } w-full overflow-hidden transition-all`}
+            } w-full overflow-hidden transition-all bg-white`}
           >
             <div className='w-full px-4 py-6'>
               <Input.Search
@@ -46,11 +46,11 @@ const BuildingList: React.FC = () => {
           </div>
         </div>
 
-        <div className='flex-1'>
+        <div className='flex-1 md:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-4 md:p-4'>
           {buildingData.map((bldg, i) => (
             <div
               key={i}
-              className='flex p-4 border-b border-gray-200 h-24 items-center'
+              className='flex p-4 border-b w-full border-gray-200 md:border h-24 items-center md:h-40 md:items-start bg-white md:rounded-md md:shadow-md md:relative group cursor-pointer overflow-hidden transition-all hover:bg-gray-100 hover:border-gray-300'
               onClick={() => push(`buildings/${bldg.id}/floors`)}
             >
               <div className='col-span-3'>
@@ -64,8 +64,17 @@ const BuildingList: React.FC = () => {
                 <Text className='text-primary font-semibold'>{bldg.name}</Text>
                 <Text className='text-xs text-gray-600'>{bldg.address}</Text>
               </div>
-              <div className='w-8 h-full flex items-center justify-end'>
+              <div className='w-8 h-full flex items-center justify-end md:hidden'>
                 <ArrowRightIcon className='h-5 w-5 text-primary' />
+              </div>
+
+              <div className='h-10 border-t border-gray-200 absolute bottom-0 left-0 w-full hidden md:block group-hover:bg-primary group-hover:bg-opacity-50 transition-all cursor-pointer'>
+                <div className='w-full h-full flex items-center justify-center gap-x-2'>
+                  <Text className='text-primary group-hover:text-white transition-all'>
+                    View Building
+                  </Text>
+                  <ArrowRightIcon className='h-5 w-5 text-primary group-hover:text-white transition-all' />
+                </div>
               </div>
             </div>
           ))}

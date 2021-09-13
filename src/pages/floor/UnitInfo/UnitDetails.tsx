@@ -14,69 +14,69 @@ const UnitDetails: React.FC<UnitDetailsProps> = ({ data }) => {
       <Divider />
 
       <div className='flex items-center gap-x-2'>
-        <CollectionIcon className='w-5 h-5' />
-        <Text className='text-lg font-semibold'>Unit Details:</Text>
+        <CollectionIcon className='w-5 h-5 text-primary' />
+        <Text className='font-semibold text-primary'>Unit Details:</Text>
       </div>
 
-      <div className='pl-4 my-4 border-l-2 border-blue-300'>
+      <div className='p-2 my-4 bg-gray-200 rounded-md'>
         <div className='flex flex-col'>
           <Text className='text-sm'>
-            <strong>Floor: </strong>
+            <strong className='text-primary'>Floor: </strong>
             {data.floorNo}
           </Text>
 
           <Text className='text-sm'>
-            <strong>Lease Floor Area: </strong>
+            <strong className='text-primary'>Lease Floor Area: </strong>
             1,009 sqm
           </Text>
 
           <Text className='text-sm'>
-            <strong>Base Price: </strong>
+            <strong className='text-primary'>Base Price: </strong>
             Php 1,350
           </Text>
 
           <Text className='text-sm'>
-            <strong>Min. lease Term: </strong>
+            <strong className='text-primary'>Min. lease Term: </strong>
             60
           </Text>
 
           <Text className='text-sm'>
-            <strong>Hand-over Condition: </strong>
+            <strong className='text-primary'>Hand-over Condition: </strong>
             Warm shell
           </Text>
 
           <Text className='text-sm'>
-            <strong>Hand-over Date: </strong>
+            <strong className='text-primary'>Hand-over Date: </strong>
             01 March 2025
           </Text>
 
           <Text className='text-sm'>
-            <strong>CUSA: </strong>
+            <strong className='text-primary'>CUSA: </strong>
             165.00
           </Text>
 
           <Text className='text-sm'>
-            <strong>Escalation Rate: </strong>
+            <strong className='text-primary'>Escalation Rate: </strong>
             5%
           </Text>
 
           <Text className='text-sm'>
-            <strong>Parking Rent: </strong>
+            <strong className='text-primary'>Parking Rent: </strong>
             5,500
           </Text>
 
           <Text className='text-sm'>
-            <strong>AC Charges: </strong>
+            <strong className='text-primary'>AC Charges: </strong>
             15/tr
           </Text>
 
           <Text className='text-sm'>
-            <strong>AC Extension Charges: </strong>
+            <strong className='text-primary'>AC Extension Charges: </strong>
             N/A
           </Text>
 
           <Text className='text-sm'>
-            <strong>Notes: </strong>
+            <strong className='text-primary'>Notes: </strong>
             N/A
           </Text>
         </div>

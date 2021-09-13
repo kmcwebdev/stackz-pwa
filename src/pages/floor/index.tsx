@@ -6,10 +6,10 @@ import { FloorData, floorData } from 'src/assets/data';
 import Content from 'src/components/layout/Content';
 import SiderDialog from 'src/components/Sider-dialog';
 import { Text } from 'src/components/Text';
-import BuildingInfo from '../building/floor/BuildingInfo';
-import Gallery from '../building/floor/Gallery';
-import UnitInfo from '../building/floor/UnitInfo';
+import BuildingInfo from './BuildingInfo';
+import Gallery from './Gallery';
 import Tenants from './Tenants';
+import UnitInfo from './UnitInfo';
 
 const leastExpiryButtons: string[] = [
   '2020',
@@ -25,10 +25,7 @@ const leastExpiryButtons: string[] = [
 const Index: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('Lease Expiry');
   const [siderContent, setSiderContent] = useState<
-    | 'Filter'
-    | 'Building Information'
-    | 'Unit Information'
-    | 'Gallery & Virtual Tour'
+    'Building Information' | 'Unit Information' | 'Gallery & Virtual Tour'
   >();
   const [siderOpen, setSiderOpen] = useState<boolean>(false);
   const [filterOpen, setFilterOpen] = useState<boolean>(false);
@@ -36,7 +33,6 @@ const Index: React.FC = () => {
 
   const handleSider = (
     mode:
-      | 'Filter'
       | 'Building Information'
       | 'Unit Information'
       | 'Gallery & Virtual Tour',
@@ -81,7 +77,7 @@ const Index: React.FC = () => {
   };
 
   const radioGroup: JSX.Element = (
-    <div className='border-2 border-primary grid items-center grid-cols-2 w-full md:w-6/12 md:justify-center rounded-md'>
+    <div className='border-2 border-primary grid items-center grid-cols-2 w-full md:w-6/12 md:justify-center rounded-md h-10'>
       <div
         className={`${
           selectedOption === 'Lease Expiry' &&
@@ -141,9 +137,15 @@ const Index: React.FC = () => {
                 </div>
               )}
 
-              <ChartBarIcon className='h-5  w-5 text-primary' />
+              <ChartBarIcon
+                className='h-5  w-5 text-primary'
+                onClick={() => handleSider('Gallery & Virtual Tour')}
+              />
 
-              <InformationCircleIcon className='h-5  w-5 text-primary' />
+              <InformationCircleIcon
+                className='h-5  w-5 text-primary'
+                onClick={() => handleSider('Building Information')}
+              />
             </div>
           </div>
           {selectedOption === 'Lease Expiry' && (
@@ -156,7 +158,7 @@ const Index: React.FC = () => {
                 <Text className='text-primary font-semibold text-xs mb-4'>
                   Lease Expiration
                 </Text>
-                <div className='grid grid-cols-4 gap-2 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8'>
+                <div className='grid grid-cols-4 gap-2 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-5 md:w-6/12 '>
                   {leastExpiryButtons.map((btn, i) => (
                     <Button
                       key={i}
@@ -214,7 +216,6 @@ const Index: React.FC = () => {
         setOpen={setSiderOpen}
         title={siderContent!}
       >
-        {siderContent === 'Filter' && 'Insert filter fields here...'}
         {siderContent === 'Building Information' && <BuildingInfo />}
         {siderContent === 'Gallery & Virtual Tour' && <Gallery />}
         {siderContent === 'Unit Information' && <UnitInfo data={activeUnit!} />}
