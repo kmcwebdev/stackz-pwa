@@ -128,28 +128,30 @@ const Index: React.FC = () => {
             </Text>
 
             <div className='flex items-center gap-x-4 h-14 relative'>
-              <div
-                className={`h-full flex items-center justify-center relative ${
-                  filterOpen && 'triangle'
-                }`}
-              >
-                <AdjustmentsIcon
-                  className='h-5  w-5 text-primary'
-                  onClick={() => setFilterOpen(!filterOpen)}
-                />
-              </div>
+              {selectedOption === 'Lease Expiry' && (
+                <div
+                  className={`h-full flex items-center justify-center relative ${
+                    filterOpen && 'triangle'
+                  }`}
+                >
+                  <AdjustmentsIcon
+                    className='h-5  w-5 text-primary'
+                    onClick={() => setFilterOpen(!filterOpen)}
+                  />
+                </div>
+              )}
 
               <ChartBarIcon className='h-5  w-5 text-primary' />
 
               <InformationCircleIcon className='h-5  w-5 text-primary' />
             </div>
           </div>
-          <div
-            className={`${
-              filterOpen ? 'h-48 md:h-40 border-b border-gray-200' : 'h-0'
-            } w-full overflow-hidden transition-all`}
-          >
-            {selectedOption === 'Lease Expiry' && (
+          {selectedOption === 'Lease Expiry' && (
+            <div
+              className={`${
+                filterOpen ? 'h-48 md:h-40 border-b border-gray-200' : 'h-0'
+              } w-full overflow-hidden transition-all`}
+            >
               <div className='w-full flex flex-col px-4 py-6'>
                 <Text className='text-primary font-semibold text-xs mb-4'>
                   Lease Expiration
@@ -170,8 +172,8 @@ const Index: React.FC = () => {
                   ))}
                 </div>
               </div>
-            )}
-          </div>
+            </div>
+          )}
           <div className='p-4 border-b border-gray-200'>{radioGroup}</div>
 
           <div className='flex text-center py-2 px-4 gap-x-2 border-b border-gray-200'>
