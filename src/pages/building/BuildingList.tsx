@@ -34,15 +34,15 @@ const BuildingList: React.FC = () => {
           </div>
           <div
             className={`${
-              showSearch
-                ? 'h-auto px-4 py-6 border-b border-gray-200'
-                : 'h-0 p-0'
+              showSearch ? 'h-20 border-b border-gray-200' : 'h-0 p-0'
             } w-full overflow-hidden transition-all`}
           >
-            <Input.Search
-              placeholder='Search building...'
-              enterButton='Search'
-            />
+            <div className='w-full px-4 py-6'>
+              <Input.Search
+                placeholder='Search building...'
+                enterButton='Search'
+              />
+            </div>
           </div>
         </div>
 
