@@ -664,8 +664,8 @@ svg{
 .left-0{
 	left: 0px;
 }
-.-right-16{
-	right: -4rem;
+.right-16{
+	right: 4rem;
 }
 .z-20{
 	z-index: 20;
@@ -906,6 +906,10 @@ svg{
 }
 .-translate-x-full{
 	--tw-translate-x: -100%;
+	transform: var(--tw-transform);
+}
+.-translate-y-10{
+	--tw-translate-y: -2.5rem;
 	transform: var(--tw-transform);
 }
 .scale-95{

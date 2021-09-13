@@ -85,7 +85,6 @@ const Index: React.FC<IndexProps> = ({ data }) => {
 
       {data.tenants.map((tenant, i) => (
         <div
-          role='button'
           key={i}
           className={`transition-all rounded-md w-full overflow-hidden relative
           ${activeTenant === i && 'bg-gray-200'}
@@ -125,21 +124,19 @@ const Index: React.FC<IndexProps> = ({ data }) => {
               </div>
             </div>
             <div
-              className='relative flex items-center h-full border-gray-100'
+              className='flex items-center h-full border-gray-100 relative'
               style={{ width: '20%' }}
             >
-              <div className='z-50 fixed'>
-                <TenantMenu
-                  index={i}
-                  toggleAddContactModal={toggleAddContactModal}
-                  handleShowFeedbackModal={handleShowFeedbackModal}
-                />
-              </div>
+              <TenantMenu
+                index={i}
+                toggleAddContactModal={toggleAddContactModal}
+                handleShowFeedbackModal={handleShowFeedbackModal}
+              />
             </div>
 
             <div
               style={{ width: '30%' }}
-              className={`h-full bg-warning transition-all`}
+              className='h-full bg-warning transition-all'
               onClick={() => handleShowFeedbackModal(i)}
             >
               <div className='flex flex-col items-center h-full justify-center'>
