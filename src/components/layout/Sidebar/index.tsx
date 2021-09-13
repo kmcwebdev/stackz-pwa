@@ -85,7 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
     <>
       {/* Desktop Sidebar */}
       <div className='hidden lg:flex lg:flex-shrink-0'>
-        <div className='flex flex-col w-64 pt-5 pb-4 bg-primary border-r border-gray-200'>
+        <div className='flex flex-col w-64 pt-5 pb-4 bg-white border-r border-gray-200'>
           {topSection}
           {sideNavigation}
         </div>

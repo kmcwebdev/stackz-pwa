@@ -15,7 +15,7 @@ const LazyLoad: React.FC<LazyLoadProps> = ({ fullHeight }) => {
         'h-full': fullHeight,
       })}
     >
-      <div className='absolute h-full w-full grid place-items-center bg-black bg-opacity-10'>
+      <div className='absolute h-full w-full grid place-items-center bg-black bg-opacity-5 transition-all'>
         <div className='flex flex-col gap-4'>
           <LoadingOutlined
             spin

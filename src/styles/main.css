@@ -1145,8 +1145,8 @@ svg{
 	--tw-bg-opacity: 1;
 	background-color: rgba(248, 113, 113, var(--tw-bg-opacity));
 }
-.bg-opacity-10{
-	--tw-bg-opacity: 0.1;
+.bg-opacity-5{
+	--tw-bg-opacity: 0.05;
 }
 .bg-opacity-75{
 	--tw-bg-opacity: 0.75;
