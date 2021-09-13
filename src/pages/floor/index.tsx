@@ -146,13 +146,14 @@ const Index: React.FC = () => {
           </div>
           <div
             className={`${
-              filterOpen
-                ? 'h-auto px-4 py-6 border-b border-gray-200'
-                : 'h-0 p-0'
+              filterOpen ? 'h-40 border-b border-gray-200' : 'h-0'
             } w-full overflow-hidden transition-all`}
           >
             {selectedOption === 'Lease Expiry' && (
-              <div className='w-full'>
+              <div className='w-full flex flex-col px-4 py-6'>
+                <Text className='text-primary font-semibold text-xs mb-4'>
+                  Lease Expiration
+                </Text>
                 <div className='grid grid-cols-4 gap-2 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8'>
                   {leastExpiryButtons.map((btn, i) => (
                     <Button
