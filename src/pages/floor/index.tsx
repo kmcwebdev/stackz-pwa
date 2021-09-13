@@ -76,42 +76,6 @@ const Index: React.FC = () => {
     return border;
   };
 
-  const radioGroup: JSX.Element = (
-    <div className='border-2 border-primary grid items-center grid-cols-2 w-full md:w-6/12 md:justify-center rounded-md h-10 relative bg-primary'>
-      <div
-        className={`${
-          selectedOption === 'Lease Expiry'
-            ? 'bg-primary text-white transition-all'
-            : 'bg-white'
-        } text-center py-2 cursor-pointer`}
-        onClick={() => setSelectedOption('Lease Expiry')}
-      >
-        <Text
-          className={`${
-            selectedOption === 'Lease Expiry' && 'text-white'
-          } text-xs`}
-        >
-          Lease Expiry
-        </Text>
-      </div>
-      <div
-        className={`${
-          selectedOption === 'Tenant Classification' &&
-          'bg-primary text-white transition-all'
-        } text-center py-2 cursor-pointer`}
-        onClick={() => setSelectedOption('Tenant Classification')}
-      >
-        <Text
-          className={`${
-            selectedOption === 'Tenant Classification' && 'text-white'
-          } text-xs`}
-        >
-          Tenant Classification
-        </Text>
-      </div>
-    </div>
-  );
-
   const radioButtons: JSX.Element = (
     <span className='relative z-0 inline-flex shadow-sm rounded-md w-full md:w-6/12'>
       <button
