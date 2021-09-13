@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@3m1/service-worker-updater": "^2.0.1",
     "@ant-design/icons": "^4.6.3",
     "@craco/craco": "^6.2.0",
     "@headlessui/react": "^1.4.0",
