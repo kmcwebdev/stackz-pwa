@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Redirect, Switch } from 'react-router-dom';
 import LazyLoad from 'src/components/Lazy-load';
-import ProtectedRoute from 'src/components/ProtectedRoute';
+import ProtectedRoute from 'src/components/Protected-route';
 import Result from 'src/components/Result';
 
 const Dashboard = lazy(() => import('./Dashboard'));

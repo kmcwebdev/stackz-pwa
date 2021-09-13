@@ -2,6 +2,7 @@ import {
   ServiceWorkerUpdaterProps,
   withServiceWorkerUpdater,
 } from '@3m1/service-worker-updater';
+import { Button } from 'antd';
 import React from 'react';
 
 const PwaUpdate: React.FC<ServiceWorkerUpdaterProps> = (props) => {
@@ -9,7 +10,7 @@ const PwaUpdate: React.FC<ServiceWorkerUpdaterProps> = (props) => {
   return newServiceWorkerDetected ? (
     <>
       New version detected.
-      <button onClick={onLoadNewServiceWorkerAccept}>Update!</button>
+      <Button onClick={onLoadNewServiceWorkerAccept}>Update!</Button>
     </>
   ) : null; // If no update is available, render nothing
 };
