@@ -720,6 +720,9 @@ svg{
 .ml-3{
 	margin-left: 0.75rem;
 }
+.-ml-px{
+	margin-left: -1px;
+}
 .mb-4{
 	margin-bottom: 1rem;
 }
@@ -762,6 +765,9 @@ svg{
 .flex{
 	display: flex;
 }
+.inline-flex{
+	display: inline-flex;
+}
 .grid{
 	display: grid;
 }
@@ -792,12 +798,6 @@ svg{
 .h-6{
 	height: 1.5rem;
 }
-.h-20{
-	height: 5rem;
-}
-.h-0{
-	height: 0px;
-}
 .h-24{
 	height: 6rem;
 }
@@ -809,6 +809,12 @@ svg{
 }
 .h-48{
 	height: 12rem;
+}
+.h-0{
+	height: 0px;
+}
+.h-20{
+	height: 5rem;
 }
 .h-52{
 	height: 13rem;
@@ -840,6 +846,9 @@ svg{
 .w-5{
 	width: 1.25rem;
 }
+.w-9\/12{
+	width: 75%;
+}
 .w-16{
 	width: 4rem;
 }
@@ -848,6 +857,9 @@ svg{
 }
 .w-3\/12{
 	width: 25%;
+}
+.w-1\/2{
+	width: 50%;
 }
 .w-auto{
 	width: auto;
@@ -1015,6 +1027,14 @@ svg{
 .rounded-full{
 	border-radius: 9999px;
 }
+.rounded-l-md{
+	border-top-left-radius: 0.375rem;
+	border-bottom-left-radius: 0.375rem;
+}
+.rounded-r-md{
+	border-top-right-radius: 0.375rem;
+	border-bottom-right-radius: 0.375rem;
+}
 .border-2{
 	border-width: 2px;
 }
@@ -1131,9 +1151,6 @@ svg{
 .p-4{
 	padding: 1rem;
 }
-.p-0{
-	padding: 0px;
-}
 .p-1{
 	padding: 0.25rem;
 }
@@ -1152,6 +1169,10 @@ svg{
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 }
+.px-2{
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
 .py-1{
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
@@ -1159,10 +1180,6 @@ svg{
 .px-3{
 	padding-left: 0.75rem;
 	padding-right: 0.75rem;
-}
-.px-2{
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
 }
 .px-3\.5{
 	padding-left: 0.875rem;
@@ -1287,6 +1304,10 @@ svg{
 	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-sm{
+	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .shadow-lg{
 	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -1365,6 +1386,11 @@ svg{
 	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 }
 
+.hover\:bg-primary:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(31, 68, 126, var(--tw-bg-opacity));
+}
+
 .hover\:bg-gray-300:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
@@ -1397,6 +1423,11 @@ svg{
 .hover\:text-gray-500:hover{
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
+
+.hover\:text-white:hover{
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
 .hover\:text-gray-600:hover{

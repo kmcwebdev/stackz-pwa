@@ -77,11 +77,12 @@ const Index: React.FC = () => {
   };
 
   const radioGroup: JSX.Element = (
-    <div className='border-2 border-primary grid items-center grid-cols-2 w-full md:w-6/12 md:justify-center rounded-md h-10'>
+    <div className='border-2 border-primary grid items-center grid-cols-2 w-full md:w-6/12 md:justify-center rounded-md h-10 relative bg-primary'>
       <div
         className={`${
-          selectedOption === 'Lease Expiry' &&
-          'bg-primary text-white transition-all'
+          selectedOption === 'Lease Expiry'
+            ? 'bg-primary text-white transition-all'
+            : 'bg-white'
         } text-center py-2 cursor-pointer`}
         onClick={() => setSelectedOption('Lease Expiry')}
       >
@@ -109,6 +110,33 @@ const Index: React.FC = () => {
         </Text>
       </div>
     </div>
+  );
+
+  const radioButtons: JSX.Element = (
+    <span className='relative z-0 inline-flex shadow-sm rounded-md w-full md:w-6/12'>
+      <button
+        type='button'
+        className={`relative inline-flex items-center px-2 py-2 rounded-l-md border-2 border-primary text-sm font-medium  hover:bg-primary hover:text-white transition-all justify-center w-1/2 ${
+          selectedOption === 'Lease Expiry'
+            ? 'bg-primary text-white'
+            : 'bg-white text-primary'
+        }`}
+        onClick={() => setSelectedOption('Lease Expiry')}
+      >
+        Lease Expiry
+      </button>
+      <button
+        type='button'
+        className={`-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border-2 border-primary text-sm font-medium hover:bg-primary hover:text-white justify-center transition-all w-1/2 ${
+          selectedOption === 'Tenant Classification'
+            ? 'bg-primary text-white'
+            : 'bg-white text-primary'
+        }`}
+        onClick={() => setSelectedOption('Tenant Classification')}
+      >
+        Tenant Classification
+      </button>
+    </span>
   );
 
   return (
@@ -176,7 +204,7 @@ const Index: React.FC = () => {
               </div>
             </div>
           )}
-          <div className='p-4 border-b border-gray-200'>{radioGroup}</div>
+          <div className='p-4 border-b border-gray-200'>{radioButtons}</div>
 
           <div className='flex text-center py-2 px-4 gap-x-2 border-b border-gray-200'>
             <div className='w-16 md:w-20 text-xs font-semibold bg-gray-100 rounded-md py-1'>

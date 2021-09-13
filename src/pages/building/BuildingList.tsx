@@ -8,8 +8,6 @@ import { Text } from 'src/components/Text';
 const BuildingList: React.FC = () => {
   const { push } = useHistory();
 
-  const [showSearch, setShowSearch] = React.useState<boolean>(false);
-
   return (
     <>
       <div className='h-full w-full block relative'>
@@ -19,7 +17,7 @@ const BuildingList: React.FC = () => {
               Buildings
             </Text>
 
-            <div className='flex items-center w-7/12 md:w-6/12 gap-x-4 h-14 relative'>
+            <div className='flex items-center w-9/12 md:w-6/12 gap-x-4 h-14 relative'>
               <Input.Search
                 placeholder='Search building...'
                 enterButton={<SearchIcon className='h-5 w-5' />}
